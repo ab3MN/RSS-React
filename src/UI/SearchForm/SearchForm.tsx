@@ -1,6 +1,7 @@
 import { Component, ChangeEvent, FormEvent } from 'react';
 
 import { IconButton } from '../IconButton/IconButton';
+import { Input } from '../Input/Input';
 
 import s from './SearchForm.module.scss';
 
@@ -20,15 +21,12 @@ export class SearchForm extends Component<Props> {
 
     return (
       <form
-        className={s.container}
+        className={s.form}
         onSubmit={handleSubmit}
       >
-        <input
-          type="text"
-          placeholder="Search"
+        <Input
+          handleChange={handleChange}
           value={value}
-          onChange={handleChange}
-          className={s.input}
         />
 
         <IconButton

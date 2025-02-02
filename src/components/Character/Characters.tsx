@@ -12,6 +12,7 @@ import { ResponseData } from '@/types/Response.type';
 import { CharacterData } from '@/types/Characker.type';
 import { SkeletoneList } from '@/UI/Sceletones/SkeletoneList/SkeletoneList';
 import { Button } from '@/UI/Button/Button';
+import { LocalStorageUtil } from '@/utils/localeStorage';
 
 interface State {
   data: ResponseData<CharacterData>;
@@ -33,10 +34,14 @@ const initialState: State = {
 };
 
 export class Characters extends PureComponent<Record<string, never>, State> {
-  state = initialState;
+  state = { ...initialState };
 
   componentDidMount() {
-    this.getData('');
+    const { getItem } = LocalStorageUtil('search');
+
+    const search = getItem() || '';
+
+    this.getData(search);
   }
 
   getData(search: string) {
@@ -56,13 +61,9 @@ export class Characters extends PureComponent<Record<string, never>, State> {
       .finally(() => setTimeout(() => this.setState({ isLoading: false }), 100));
   }
 
-  handleSubmit = (search: string) => {
-    this.getData(search.trim().toLowerCase());
-  };
+  handleSubmit = (search: string) => this.getData(search.trim().toLowerCase());
 
-  handleMakeError = () => {
-    this.setState({ customError: true });
-  };
+  handleMakeError = () => this.setState({ customError: true });
 
   renderView() {
     const { isLoading, data, customError } = this.state;
@@ -93,17 +94,19 @@ export class Characters extends PureComponent<Record<string, never>, State> {
     return (
       <>
         <Header handleSubmit={this.handleSubmit} />
-        <Container>
-          {this.renderView()}
+        <main>
+          <Container>
+            {this.renderView()}
 
-          <div className={s.buttonContainer}>
-            <Button
-              label="Make an error"
-              onClick={this.handleMakeError}
-              type="button"
-            />
-          </div>
-        </Container>
+            <div className={s.buttonContainer}>
+              <Button
+                label="Make an error"
+                onClick={this.handleMakeError}
+                type="button"
+              />
+            </div>
+          </Container>
+        </main>
       </>
     );
   }

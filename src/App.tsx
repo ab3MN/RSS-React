@@ -6,11 +6,9 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 export class App extends PureComponent {
   render() {
     return (
-      <main>
-        <ErrorBoundary>
-          <Characters />
-        </ErrorBoundary>
-      </main>
+      <ErrorBoundary>
+        <Characters />
+      </ErrorBoundary>
     );
   }
 }

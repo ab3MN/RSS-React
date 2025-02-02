@@ -1,21 +1,12 @@
 @use '@/styles/abstract/constants';
 @use '@/styles/abstract/mixines';
 
-.container {
-  display: flex;
-  align-items: center;
+.form {
   padding-inline: 16px;
+
+  @include mixines.flex-container(center);
 
   &:focus-within {
     border-color: var(--button-hover-bgc-color);
   }
-}
-
-.input {
-  border: none;
-  font-weight: 600;
-  background-color: var(--main-bg-color);
-  color: var(--main-color);
-
-  @include mixines.font(20px, 26px, 700);
 }

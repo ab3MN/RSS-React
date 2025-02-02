@@ -5,7 +5,7 @@
   width: 100%;
   padding-block: 9.5px;
   font-size: 16px;
-  transition: constants.$transition-time all;
+  transition: all constants.$transition-time;
   background-color: var(--button-bgc-color);
   color: var(--white-color);
 
