@@ -1,0 +1,13 @@
+.container {
+  max-width: 489.6px;
+  max-height: 506px;
+  border: 1px solid var(--element-color);
+
+  > svg {
+    margin: auto;
+    max-width: 488px;
+    width: 100%;
+    height: 500px;
+    object-position: center;
+  }
+}

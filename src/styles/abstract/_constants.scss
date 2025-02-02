@@ -1,0 +1,21 @@
+:root {
+  --white-color: #fff;
+  --light-element-color: #e2e6e9;
+  --light-text-color: #89939a;
+  --light-border-icon-color: #b4bdc3;
+  --light-main-text-color: #313237;
+}
+
+#root {
+  --main-color: var(--light-main-text-color);
+  --main-bg-color: var(--white-color);
+  --element-color: var(--light-element-color);
+  --button-bgc-color: var(--main-color);
+  --button-hover-bgc-color: var(--main-color);
+  --text-color: var(--light-text-color);
+  --border-icon-color: var(--light-border-icon-color);
+}
+
+$transition-time: 0.3s;
+$tablet: 640px;
+$desctop: 1200px;

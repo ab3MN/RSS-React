@@ -1,0 +1,17 @@
+@use '@/styles/abstract/mixines';
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 16px;
+  margin-bottom: 64px;
+
+  @include mixines.tablet {
+    padding-inline: 24px;
+  }
+
+  @include mixines.desctop {
+    padding-inline: 32px;
+    margin-bottom: 80px;
+  }
+}
