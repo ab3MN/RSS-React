@@ -1,0 +1,38 @@
+@use './constants';
+
+@mixin font($size, $height, $weight: 500, $letter: normal, $style: normal) {
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $letter;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin border($size, $color, $raduis: none) {
+  border: $size solid $color;
+  border-radius: $raduis;
+}
+
+@mixin flex-container($align-items: stretch, $justify-content: start, $flex-direction: row, $gap: null, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: constants.$tablet) {
+    @content;
+  }
+}
+
+@mixin desctop {
+  @media (min-width: constants.$desctop) {
+    @content;
+  }
+}

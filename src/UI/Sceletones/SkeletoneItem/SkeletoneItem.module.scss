@@ -1,0 +1,10 @@
+.container {
+  border: 1px solid var(--element-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+
+  > svg {
+    width: 100%;
+    height: 500px;
+  }
+}

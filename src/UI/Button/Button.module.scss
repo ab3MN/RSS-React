@@ -1,0 +1,19 @@
+@use '../../styles/abstract/constants';
+@use '../../styles/abstract/mixines' as mixin;
+
+.button {
+  width: 100%;
+  padding-block: 9.5px;
+  font-size: 16px;
+  transition: all constants.$transition-time;
+  background-color: var(--button-bgc-color);
+  color: var(--white-color);
+
+  @include mixin.flex-container(center, center);
+  @include mixin.border(1px, transparent);
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-hover-bgc-color);
+    box-shadow: 0 3px 13px var(--button-hover-bgc-color);
+  }
+}

@@ -1,0 +1,16 @@
+@use '@/styles/abstract/constants';
+
+.iconButton {
+  padding: 8px;
+
+  > svg {
+    color: var(--main-color);
+  }
+
+  &:hover {
+    > svg {
+      transform: scale(1.4);
+      color: var(--border-icon-color);
+    }
+  }
+}
