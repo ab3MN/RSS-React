@@ -1,8 +1,7 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
 
 import { Header } from '../Header/Header';
-
-import s from './Characters.module.scss';
+import { ErrorButton } from '../ErrorButton/ErrorButton';
 
 import CharacterList from '@/UI/CharacterList/CharacterList';
 import EmptyContainer from '@/UI/EmptyContainer/EmptyContainer';
@@ -11,14 +10,13 @@ import { getCharactersData } from '@/api/character.api';
 import { ResponseData } from '@/types/Response.type';
 import { CharacterData } from '@/types/Characker.type';
 import { SkeletoneList } from '@/UI/Sceletones/SkeletoneList/SkeletoneList';
-import { Button } from '@/UI/Button/Button';
 import { LocalStorageUtil } from '@/utils/localeStorage';
 
 interface State {
   data: ResponseData<CharacterData>;
   error: string | null;
-  customError: boolean;
   isLoading: boolean;
+  prevSearch: string;
 }
 
 const initialState: State = {
@@ -29,12 +27,12 @@ const initialState: State = {
     results: [],
   },
   error: null,
-  customError: false,
   isLoading: true,
+  prevSearch: '',
 };
 
-export class Characters extends PureComponent<Record<string, never>, State> {
-  state = { ...initialState };
+export class Characters extends Component<Record<string, never>, State> {
+  state = { ...initialState, prevSearch: '' };
 
   componentDidMount() {
     const { getItem } = LocalStorageUtil('search');
@@ -45,7 +43,7 @@ export class Characters extends PureComponent<Record<string, never>, State> {
   }
 
   getData(search: string) {
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true, prevSearch: search });
 
     getCharactersData(search)
       .then((res) => {
@@ -58,19 +56,19 @@ export class Characters extends PureComponent<Record<string, never>, State> {
       .catch((err: Error) => {
         this.setState({ error: err.message });
       })
-      .finally(() => setTimeout(() => this.setState({ isLoading: false }), 100));
+      .finally(() => this.setState({ isLoading: false }));
   }
 
-  handleSubmit = (search: string) => this.getData(search.trim().toLowerCase());
+  handleSubmit = (search: string) => {
+    const _search = search.trim().toLowerCase();
 
-  handleMakeError = () => this.setState({ customError: true });
+    if (_search !== this.state.prevSearch) {
+      this.getData(_search);
+    }
+  };
 
   renderView() {
-    const { isLoading, data, customError } = this.state;
-
-    if (customError) {
-      throw new Error('Load characters with an Error');
-    }
+    const { isLoading, data } = this.state;
 
     switch (true) {
       case isLoading:
@@ -97,14 +95,7 @@ export class Characters extends PureComponent<Record<string, never>, State> {
         <main>
           <Container>
             {this.renderView()}
-
-            <div className={s.buttonContainer}>
-              <Button
-                label="Make an error"
-                onClick={this.handleMakeError}
-                type="button"
-              />
-            </div>
+            <ErrorButton />
           </Container>
         </main>
       </>

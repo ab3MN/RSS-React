@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
 import s from './EmptyContainer.module.scss';
 
@@ -9,7 +9,7 @@ interface Props {
   alt: string;
 }
 
-export class EmptyContainer extends Component<Props> {
+export class EmptyContainer extends PureComponent<Props> {
   render() {
     const { title, pathToImg, alt } = this.props;
 

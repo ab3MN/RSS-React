@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
 import s from './CharacterItem.module.scss';
 
@@ -9,7 +9,7 @@ interface Props {
   character: CharacterData;
 }
 
-export class CharacterItem extends Component<Props> {
+export class CharacterItem extends PureComponent<Props> {
   render() {
     const { character } = this.props;
     const { url, planet, name, hair_color: hair, eye_color: eye, birth_year: birthday } = character;

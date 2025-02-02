@@ -1,4 +1,4 @@
-import { Component, ChangeEvent } from 'react';
+import { PureComponent, ChangeEvent } from 'react';
 
 import s from './Input.module.scss';
 
@@ -7,7 +7,7 @@ interface Props {
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export class Input extends Component<Props> {
+export class Input extends PureComponent<Props> {
   render() {
     const { handleChange, value } = this.props;
 

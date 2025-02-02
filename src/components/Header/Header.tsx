@@ -1,4 +1,4 @@
-import { ChangeEvent, Component, FormEvent, ReactNode } from 'react';
+import { ChangeEvent, FormEvent, PureComponent, ReactNode } from 'react';
 
 import s from './Header.module.scss';
 
@@ -16,7 +16,7 @@ interface State {
   search: string;
 }
 
-export class Header extends Component<Props, State> {
+export class Header extends PureComponent<Props, State> {
   state: State = {
     search: '',
   };

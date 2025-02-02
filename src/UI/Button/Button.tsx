@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import cn from 'classnames';
 
 import s from './Button.module.scss';
@@ -9,7 +9,7 @@ interface Props {
   onClick?: () => void;
 }
 
-export class Button extends Component<Props> {
+export class Button extends PureComponent<Props> {
   render() {
     const { label, onClick, type = 'button' } = this.props;
 

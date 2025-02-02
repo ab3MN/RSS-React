@@ -1,4 +1,4 @@
-import { Component, ChangeEvent, FormEvent } from 'react';
+import { PureComponent, ChangeEvent, FormEvent } from 'react';
 
 import { IconButton } from '../IconButton/IconButton';
 import { Input } from '../Input/Input';
@@ -15,7 +15,7 @@ interface Props {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-export class SearchForm extends Component<Props> {
+export class SearchForm extends PureComponent<Props> {
   render() {
     const { handleChange, value, handleClear, handleSubmit } = this.props;
 
