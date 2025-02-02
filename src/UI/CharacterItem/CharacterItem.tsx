@@ -12,7 +12,9 @@ interface Props {
 export class CharacterItem extends Component<Props> {
   render() {
     const { character } = this.props;
-    const { url, planet, name, hair_color, eye_color, birth_year } = character;
+    const { url, planet, name, hair_color: hair, eye_color: eye, birth_year: birthday } = character;
+
+    const descriptions = { planet, hair, eye, birthday };
 
     const id = getIdFromUrl(url);
 
@@ -28,16 +30,15 @@ export class CharacterItem extends Component<Props> {
           </div>
 
           <h2 className={s.itemName}>{name}</h2>
-          <h4 className={s.itemPlanet}>{planet !== 'unknown' ? planet : 'Unknown Planet'}</h4>
-          <p className={s.itemDescription}>
-            <span>Hair:</span> {hair_color}
-          </p>
-          <p className={s.itemDescription}>
-            <span>Eye:</span> {eye_color}
-          </p>
-          <p className={s.itemDescription}>
-            <span>Birthday:</span> {birth_year}
-          </p>
+
+          {Object.entries(descriptions).map(([key, value]) => (
+            <p
+              className={s.description}
+              key={key}
+            >
+              <span>{key}</span> {value}
+            </p>
+          ))}
         </article>
       </li>
     );
