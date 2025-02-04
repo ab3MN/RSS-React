@@ -1,4 +1,4 @@
-import { ChangeEvent, Component, FormEvent, ReactNode } from 'react';
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 
 import s from './Header.module.scss';
 
@@ -12,53 +12,43 @@ interface Props {
   handleSubmit: (search: string) => void;
 }
 
-interface State {
-  search: string;
-}
+export const Header: FC<Props> = ({ handleSubmit }) => {
+  const [search, setSearch] = useState('');
 
-export class Header extends Component<Props, State> {
-  state: State = {
-    search: '',
+  useEffect(() => {
+    const storedSearch = getItem();
+
+    if (storedSearch) setSearch(storedSearch);
+  }, []);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
   };
 
-  componentDidMount() {
-    const search = getItem();
-
-    if (search) this.setState({ search });
-  }
-
-  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ search: event.target.value });
-  };
-
-  handleClear = () => {
-    this.setState({ search: '' });
+  const handleClear = () => {
+    setSearch('');
     removeItem();
   };
 
-  handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setItem(this.state.search);
-    this.props.handleSubmit(this.state.search);
+    setItem(search);
+    handleSubmit(search.trim().toLowerCase());
   };
 
-  render(): ReactNode {
-    return (
-      <header className={s.container}>
-        <h1 className={s.logo}>
-          <Logo />
-        </h1>
-
-        <div className={s.search}>
-          <SearchForm
-            handleChange={this.handleChange}
-            handleClear={this.handleClear}
-            handleSubmit={this.handleSubmit}
-            value={this.state.search}
-          />
-        </div>
-      </header>
-    );
-  }
-}
+  return (
+    <header className={s.container}>
+      <h1 className={s.logo}>
+        <Logo />
+      </h1>
+      <div className={s.search}>
+        <SearchForm
+          handleChange={handleChange}
+          handleClear={handleClear}
+          handleSubmit={onSubmit}
+          value={search}
+        />
+      </div>
+    </header>
+  );
+};

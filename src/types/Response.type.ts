@@ -5,7 +5,7 @@ export interface Response<T> {
 }
 
 export interface ResponseData<T> {
-  count: number | null;
+  count: number;
   next: string | null;
   previous: string | null;
   results: Array<T>;

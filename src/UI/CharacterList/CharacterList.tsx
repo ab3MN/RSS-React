@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { FC } from 'react';
 
 import { CharacterItem } from '../CharacterItem/CharacterItem';
 
@@ -10,17 +10,13 @@ interface Props {
   characters: CharacterData[];
 }
 
-export default class CharacterList extends PureComponent<Props> {
-  render() {
-    return (
-      <ul className={s.list}>
-        {this.props.characters.map((character) => (
-          <CharacterItem
-            character={character}
-            key={character.name}
-          />
-        ))}
-      </ul>
-    );
-  }
-}
+export const CharacterList: FC<Props> = ({ characters }) => (
+  <ul className={s.list}>
+    {characters.map((character) => (
+      <CharacterItem
+        character={character}
+        key={character.name}
+      />
+    ))}
+  </ul>
+);

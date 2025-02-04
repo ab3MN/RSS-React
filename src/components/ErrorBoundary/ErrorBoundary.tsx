@@ -3,7 +3,7 @@ import { Component, ReactNode } from 'react';
 import s from './ErrorBoundary.module.scss';
 
 import { Button } from '@/UI/Button/Button';
-import Container from '@/UI/Container/Container';
+import { Container } from '@/UI/Container/Container';
 
 interface Props {
   children?: ReactNode;

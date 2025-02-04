@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import s from './IconButton.module.scss';
 
@@ -10,19 +10,13 @@ interface Props {
   height?: string;
 }
 
-export class IconButton extends PureComponent<Props> {
-  render() {
-    const { onClick, children, width, height, type = 'button' } = this.props;
-
-    return (
-      <button
-        className={s.iconButton}
-        type={type}
-        onClick={onClick}
-        style={{ width, height }}
-      >
-        {children}
-      </button>
-    );
-  }
-}
+export const IconButton: FC<Props> = ({ onClick, children, width, height, type = 'button' }) => (
+  <button
+    className={s.iconButton}
+    type={type}
+    onClick={onClick}
+    style={{ width, height }}
+  >
+    {children}
+  </button>
+);
