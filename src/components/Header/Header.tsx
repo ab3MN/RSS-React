@@ -1,7 +1,9 @@
 import s from './Header.module.scss';
 
+import { CustomLink } from '@/UI/Link/Link';
 import { SearchForm } from '@/UI/SearchForm/SearchForm';
 import Logo from '@/assets/Logo.svg?react';
+import { PATH } from '@/constants/path';
 import { useSearch } from '@/hooks/useSearch';
 
 export const Header = () => {
@@ -9,9 +11,18 @@ export const Header = () => {
 
   return (
     <header className={s.container}>
-      <h1 className={s.logo}>
-        <Logo />
-      </h1>
+      <CustomLink
+        path={PATH.HOME}
+        style={{ justifyContent: 'start' }}
+      >
+        <h1
+          className={s.logo}
+          onClick={handleClear}
+        >
+          <Logo />
+        </h1>
+      </CustomLink>
+
       <div className={s.search}>
         <SearchForm
           handleChange={handleChange}

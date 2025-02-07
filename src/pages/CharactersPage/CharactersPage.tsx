@@ -17,7 +17,6 @@ export const CharactersPage = () => {
 
   const page = String(getSearchPage(searchParams.get('page')));
   const search = searchParams.get('search') || '';
-
   const details = searchParams.get('details');
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export const CharactersPage = () => {
       case isLoading:
         return <SkeletoneList length={10} />;
 
-      case (!isLoading && !data.results.length) || (!isLoading && !!error):
+      case (!isLoading && !!error) || (!isLoading && !data.results.length):
         return (
           <EmptyContainer
             title="No Characters Found"

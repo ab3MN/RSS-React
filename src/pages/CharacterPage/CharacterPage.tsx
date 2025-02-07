@@ -29,12 +29,12 @@ export const CharacterPage = () => {
         return (
           <EmptyContainer
             title="No Characters Found"
-            pathToImg="../../assets/not-found.png"
+            pathToImg="/not-found.png"
             alt="Not Found"
           />
         );
 
-      case !isLoading && character !== null:
+      case !isLoading && !!character:
         return (
           <Character
             character={character}
@@ -46,7 +46,7 @@ export const CharacterPage = () => {
         return (
           <EmptyContainer
             title="No Characters Found"
-            pathToImg="./not-found.png"
+            pathToImg="/not-found.png"
             alt="Not Found"
           />
         );

@@ -1,10 +1,11 @@
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import { App } from './App';
 import { PATH } from './constants/path';
 import { CharactersPage } from './pages/CharactersPage/CharactersPage';
 import { CharacterPage } from './pages/CharacterPage/CharacterPage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
+import { RedirectToCharacters } from './pages/Redirects';
 
 export const Root = () => (
   <BrowserRouter>
@@ -15,7 +16,7 @@ export const Root = () => (
       >
         <Route
           index
-          element={<Navigate to={PATH.CHARACTERS} />}
+          element={<RedirectToCharacters />}
         />
 
         <Route

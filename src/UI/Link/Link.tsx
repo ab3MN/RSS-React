@@ -8,13 +8,15 @@ interface Props {
   label?: string;
   children?: ReactNode;
   state?: unknown;
+  style?: { [key: string]: string };
 }
 
-export const CustomLink: FC<Props> = ({ path, label, children, state }) => (
+export const CustomLink: FC<Props> = ({ path, label, children, state, style = {} }) => (
   <Link
     className={s.link}
     to={path}
     state={state}
+    style={style}
   >
     {children ? children : label}
   </Link>

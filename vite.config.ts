@@ -1,25 +1,13 @@
 import path from 'path';
 
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslintPlugin from 'vite-plugin-eslint';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import svgr from 'vite-plugin-svgr';
 
-export default ({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
-
-  return defineConfig({
-    server: {
-      proxy: {
-        '/graphql': {
-          target: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
-          changeOrigin: true,
-          secure: false,
-          rewrite: (path) => path.replace(/^\/graphql/, ''),
-        },
-      },
-    },
+export default () =>
+  defineConfig({
     plugins: [
       react(),
       tsconfigPaths(),
@@ -40,9 +28,6 @@ export default ({ mode }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
-    define: {
-      'process.env': env,
-    },
     build: {
       sourcemap: true,
     },
@@ -52,4 +37,3 @@ export default ({ mode }) => {
       },
     },
   });
-};

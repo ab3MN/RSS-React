@@ -14,26 +14,32 @@ export const useSearch = () => {
   const [searchParams] = useSearchParams();
 
   useLayoutEffect(() => {
-    setSearch(storedSearch);
-  }, [storedSearch]);
+    if (storedSearch) {
+      setSearch(storedSearch);
+      const path = getSearchWith(searchParams, { search: storedSearch });
+
+      navigate(`?${path}`);
+    }
+  }, [storedSearch, navigate, search, searchParams]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
+    setItem(event.target.value);
   };
 
   const handleClear = () => {
     setSearch('');
     removeItem();
-    navigate({ search: '' });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const path = getSearchWith(searchParams, { search });
+    const searchQuery = search.trim().toLowerCase();
 
-    if (search.trim()) {
-      navigate(`?${path}`);
+    if (searchQuery) {
+      setItem(searchQuery);
+      navigate(`?page=1&search=${search}`);
     }
   };
 

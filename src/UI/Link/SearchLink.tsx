@@ -7,17 +7,17 @@ import { getSearchWith } from '@/utils/URLHelpers';
 
 type Props = Omit<LinkProps, 'to'> & {
   params: SearchParams;
+  style?: { [key: string]: string };
 };
 
-export const SearchLink: React.FC<Props> = ({ children, params, ...props }) => {
+export const SearchLink: React.FC<Props> = ({ children, params, style = {}, ...props }) => {
   const [searchParams] = useSearchParams();
 
   return (
     <Link
       className={s.link}
-      to={{
-        search: getSearchWith(searchParams, params),
-      }}
+      style={style}
+      to={{ search: getSearchWith(searchParams, params) }}
       {...props}
     >
       {children}
