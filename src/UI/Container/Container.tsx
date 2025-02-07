@@ -6,10 +6,13 @@ interface Props {
   title?: string;
   titlePB?: string;
   children: ReactNode;
+  style?: {
+    [key: string]: string | number;
+  };
 }
 
-export const Container: FC<Props> = ({ title, children, titlePB = '24px' }) => (
-  <section>
+export const Container: FC<Props> = ({ title, children, titlePB = '24px', style = {} }) => (
+  <section style={style}>
     <div className={s.container}>
       {title && (
         <h2

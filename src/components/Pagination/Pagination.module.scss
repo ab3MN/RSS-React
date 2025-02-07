@@ -1,0 +1,23 @@
+@use '@/styles/abstract/mixines' as mixin;
+
+.list {
+  @include mixin.flex-container(center, center, row, 8px);
+}
+
+.item {
+  @include mixin.flex-container(center, center);
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: red;
+}
+
+.link {
+  @include mixin.flex-container(center, center);
+}

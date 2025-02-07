@@ -1,7 +1,10 @@
 import cn from 'classnames';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import s from './EmptyContainer.module.scss';
+
+import { PATH } from '@/constants/path';
 
 interface Props {
   title: string;
@@ -18,5 +21,15 @@ export const EmptyContainer: FC<Props> = ({ title, pathToImg, alt }) => (
         alt={alt}
       />
     </div>
+    <h4 className={s.navigationHint}>
+      Go to the
+      <Link
+        to={PATH.CHARACTERS}
+        className={s.link}
+      >
+        Characters
+      </Link>
+      page
+    </h4>
   </article>
 );

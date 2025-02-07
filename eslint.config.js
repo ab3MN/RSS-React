@@ -84,5 +84,5 @@ export default tseslint.config(
         { blankLine: 'always', prev: 'block-like', next: '*' },
       ],
     },
-  },
+  }
 );

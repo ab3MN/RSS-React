@@ -10,6 +10,16 @@ export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return defineConfig({
+    server: {
+      proxy: {
+        '/graphql': {
+          target: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/graphql/, ''),
+        },
+      },
+    },
     plugins: [
       react(),
       tsconfigPaths(),
