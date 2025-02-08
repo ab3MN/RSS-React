@@ -2,10 +2,8 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import { App } from './App';
 import { PATH } from './constants/path';
-import { CharactersPage } from './pages/CharactersPage/CharactersPage';
-import { CharacterPage } from './pages/CharacterPage/CharacterPage';
-import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { RedirectToCharacters } from './pages/Redirects';
+import { Pages } from './routing/routes';
 
 export const Root = () => (
   <BrowserRouter>
@@ -21,17 +19,17 @@ export const Root = () => (
 
         <Route
           path={PATH.CHARACTERS}
-          element={<CharactersPage />}
+          element={<Pages.CharactersPage />}
         >
           <Route
             index
-            element={<CharacterPage />}
+            element={<Pages.CharacterPage />}
           />
         </Route>
 
         <Route
           path={'*'}
-          element={<NotFoundPage />}
+          element={<Pages.NotFoundPage />}
         />
       </Route>
     </Routes>

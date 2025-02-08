@@ -6,6 +6,9 @@ import './Loader.scss';
 
 export const Loader = () => (
   <Container style={{ position: 'relative', height: '100vh' }}>
-    <LoaderIcon fill="#ABF8FF" />
+    <LoaderIcon
+      fill="#ABF8FF"
+      data-testid="loader-icon"
+    />
   </Container>
 );

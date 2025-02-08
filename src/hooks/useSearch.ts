@@ -15,7 +15,6 @@ export const useSearch = () => {
 
   useLayoutEffect(() => {
     if (storedSearch) {
-      setSearch(storedSearch);
       const path = getSearchWith(searchParams, { search: storedSearch });
 
       navigate(`?${path}`);
@@ -24,7 +23,6 @@ export const useSearch = () => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
-    setItem(event.target.value);
   };
 
   const handleClear = () => {
@@ -35,12 +33,8 @@ export const useSearch = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const searchQuery = search.trim().toLowerCase();
-
-    if (searchQuery) {
-      setItem(searchQuery);
-      navigate(`?page=1&search=${search}`);
-    }
+    setItem(search.trim().toLowerCase());
+    navigate(`?page=1&search=${search}`);
   };
 
   return { search, handleChange, handleClear, setItem, handleSubmit };

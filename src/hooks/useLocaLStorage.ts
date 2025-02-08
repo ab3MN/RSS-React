@@ -18,7 +18,11 @@ const useLocaLStorage = (key: string): UseLocalStorage => {
 
     if (!item) return null;
 
-    return typeof item !== 'string' ? JSON.parse(item) : item;
+    try {
+      return JSON.parse(item);
+    } catch {
+      return item;
+    }
   };
 
   const removeItem = (): void => localStorage.removeItem(key);

@@ -11,7 +11,10 @@ interface Props {
 }
 
 export const CharacterList: FC<Props> = ({ characters }) => (
-  <ul className={s.list}>
+  <ul
+    className={s.list}
+    data-testid="character-list"
+  >
     {characters.map((character) => (
       <CharacterItem
         character={character}

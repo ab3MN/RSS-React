@@ -19,13 +19,19 @@ export const Pagination: FC<IPagination> = ({ totalPage }) => {
 
   return (
     <ul className={s.list}>
-      <li className={cn(s.item, { [s.disabled]: page === 1 })}>
+      <li
+        className={cn(s.item, { [s.disabled]: page === 1 })}
+        data-testid="prev"
+      >
         <SearchLink params={{ page: String(page - 1) }}>
           <Arrow direction="left" />
         </SearchLink>
       </li>
 
-      <li className={cn(s.item, { [s.disabled]: page === totalPage })}>
+      <li
+        className={cn(s.item, { [s.disabled]: page === totalPage })}
+        data-testid="next"
+      >
         <SearchLink params={{ page: String(page + 1) }}>
           <Arrow direction="right" />
         </SearchLink>

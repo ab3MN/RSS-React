@@ -34,7 +34,12 @@ class ErrorBoundary extends Component<Props, State> {
 
     return hasError ?
         <Container>
-          <h1 className={s.title}> {errorMessage ? errorMessage : 'Sorry.. there was an error'}</h1>
+          <h1
+            data-testId="error-title"
+            className={s.title}
+          >
+            {errorMessage ? errorMessage : 'Sorry.. there was an error'}
+          </h1>
           <div className={s.buttonContainer}>
             <Button
               type="button"

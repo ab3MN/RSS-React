@@ -7,7 +7,7 @@ import { Loader } from '@/UI/Loader/Loader';
 import { Container } from '@/UI/Container/Container';
 import { useFetchCharacter } from '@/hooks/useFetch';
 
-export const CharacterPage = () => {
+const CharacterPage = () => {
   const [searchParams] = useSearchParams();
 
   const characterId = searchParams.get('details') || '';
@@ -55,3 +55,5 @@ export const CharacterPage = () => {
 
   return <Container style={{ width: '40%' }}>{renderView()}</Container>;
 };
+
+export default CharacterPage;

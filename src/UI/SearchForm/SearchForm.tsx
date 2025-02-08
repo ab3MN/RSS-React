@@ -19,6 +19,7 @@ export const SearchForm: FC<Props> = ({ handleChange, value, handleClear, handle
   <form
     className={s.form}
     onSubmit={handleSubmit}
+    aria-label="Search form"
   >
     <Input
       handleChange={handleChange}
@@ -28,6 +29,7 @@ export const SearchForm: FC<Props> = ({ handleChange, value, handleClear, handle
     <IconButton
       type="submit"
       width="30px"
+      aria-label="Search"
     >
       <Search fill="#313237" />
     </IconButton>
@@ -35,6 +37,7 @@ export const SearchForm: FC<Props> = ({ handleChange, value, handleClear, handle
     <IconButton
       width="30px"
       onClick={handleClear}
+      aria-label="Clear"
     >
       <Close fill="#313237" />
     </IconButton>

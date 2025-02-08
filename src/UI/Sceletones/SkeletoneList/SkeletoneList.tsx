@@ -12,9 +12,15 @@ interface Props {
 
 export const SkeletoneList: FC<Props> = ({ length }) => (
   <Container>
-    <div className={s.container}>
+    <div
+      className={s.container}
+      data-testid="skeletone-list-container"
+    >
       {Array.from({ length }, () => (
-        <SkeletoneItem key={self.crypto.randomUUID()} />
+        <SkeletoneItem
+          key={self.crypto.randomUUID()}
+          data-testid="sceleton-item"
+        />
       ))}
     </div>
   </Container>
