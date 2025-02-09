@@ -27,7 +27,7 @@ export const CharacterItem: FC<Props> = ({ character }) => {
         <div className={s.imgContainer}>
           <img
             className={s.img}
-            src={`./People/${id}.jpg`}
+            src={`/People/${id}.jpg`}
             alt={name}
           />
         </div>
