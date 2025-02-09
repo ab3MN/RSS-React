@@ -1,0 +1,38 @@
+@use '@/styles/abstract/mixines' as mixin;
+@use '@/styles/abstract/constants';
+
+.list {
+  @include mixin.flex-container(center, center, row, 8px);
+}
+
+.item {
+  width: 36px;
+  height: 36px;
+  @include mixin.flex-container(center, center);
+  @include mixin.border(1px, var(--light-element-color));
+}
+
+.link {
+  transition: all constants.$transition-time;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--button-hover-bgc-color);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: var(--light-text-color);
+
+  > a > svg {
+    color: var(--white-color);
+  }
+}
+
+.page {
+  color: var(--white-color);
+  border-color: var(--button-hover-bgc-color);
+  background-color: var(--button-hover-bgc-color);
+  box-shadow: 0 3px 13px var(--button-hover-bgc-color);
+}

@@ -1,0 +1,54 @@
+@use '../abstract/mixines';
+
+body {
+  font-family: Mont, Verdana, Geneva, Tahoma, sans-serif;
+  @include mixines.font(14px, 21px);
+}
+
+h1 {
+  @include mixines.font(32px, 41px, 800, -0.01em);
+
+  @include mixines.tablet {
+    @include mixines.font(48px, 56px, 800, -0.01em);
+  }
+}
+
+h2 {
+  @include mixines.font(22px, 31px, 800);
+
+  @include mixines.tablet {
+    @include mixines.font(32px, 41px, 800, -0.01em);
+  }
+}
+
+h3 {
+  @include mixines.font(20px, 26px, 700);
+
+  @include mixines.tablet {
+    @include mixines.font(22px, 31px, 800, -0.01em);
+  }
+}
+
+h4 {
+  @include mixines.font(16px, 20px, 700);
+
+  @include mixines.tablet {
+    @include mixines.font(20px, 26px, 800, -0.01em);
+  }
+}
+
+.uppercase-text {
+  @include mixines.font(12px, 11px, 800, 0.04em);
+}
+
+.button-text {
+  @include mixines.font(14px, 21px, 600);
+}
+
+.primary-text {
+  @include mixines.font(14px, 21px);
+}
+
+.small-text {
+  @include mixines.font(12px, 15px, 600);
+}

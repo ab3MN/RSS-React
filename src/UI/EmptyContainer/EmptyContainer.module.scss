@@ -1,0 +1,35 @@
+@use '@/styles/abstract/constants';
+
+.container {
+  margin-bottom: 32px;
+}
+
+.img {
+  &__container {
+    max-width: 400px;
+    margin: 32px auto;
+  }
+}
+
+.title,
+.navigationHint {
+  text-align: center;
+}
+
+.title {
+  margin-top: 32px;
+}
+
+.link {
+  padding-inline: 5px;
+  color: var(--green-color);
+
+  &:hover {
+    color: var(--main-color);
+  }
+}
+
+.navigationHint {
+  font-weight: 700;
+  color: var(--text-color);
+}

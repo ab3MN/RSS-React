@@ -1,0 +1,83 @@
+@use '../abstract/constants' as constants;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  position: relative;
+  transition: all constants.$transition-time;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
+
+a,
+input,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+picture {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  color: var(--main-color);
+  transition: all constants.$transition-time;
+}
+
+svg {
+  color: var(--main-color);
+}

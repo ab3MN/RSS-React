@@ -1,0 +1,14 @@
+@use '../../styles/abstract/constants' as constants;
+@use '@/styles/abstract/mixines' as mixin;
+
+.link {
+  font-weight: 600;
+  color: var(--main-color);
+  @include mixin.flex-container(center, center);
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    color: var(--text-color);
+  }
+}

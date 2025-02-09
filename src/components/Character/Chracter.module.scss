@@ -1,0 +1,51 @@
+@use '@/styles/abstract/constants';
+@use '@/styles/abstract/mixines' as mixin;
+
+.item {
+  border: 1px solid var(--element-color);
+  padding: 16px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+
+  &__name {
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 4px;
+  text-transform: capitalize;
+
+  @include mixin.flex-container(center, space-between);
+
+  span {
+    font-weight: bold;
+    color: var(--main-color);
+  }
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  transition: all constants.$transition-scale-time;
+
+  &__container {
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      > img {
+        transform: scale(1);
+      }
+    }
+  }
+}
