@@ -1,19 +1,15 @@
-import { vi, describe, it, expect, beforeEach, Mock } from 'vitest';
+import { vi, describe, it, expect, Mock } from 'vitest';
 
 import { getCharactersData, getCharacterData } from './character.api';
 
 import { handleRequest } from '@/utils/handleRequest';
 
-vi.mock('axios'); // Мокаем axios
+vi.mock('axios');
 vi.mock('@/utils/handleRequest', () => ({
   handleRequest: vi.fn(),
 }));
 
 describe('API Functions', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('should return character data with planet name', async () => {
     const mockCharacter = {
       name: 'Luke Skywalker',

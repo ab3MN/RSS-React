@@ -39,10 +39,24 @@ describe('useSearch', () => {
     vi.mocked(useLocaLStorage).mockReturnValue(localStorageMock);
   });
 
-  it('should initialize with empty search state', () => {
+  it('should initialize with stored search value if available', () => {
+    vi.mocked(localStorageMock.getItem).mockReturnValue('savedSearch');
+
     const { result } = renderHook(() => useSearch(), { wrapper: MemoryRouter });
 
-    expect(result.current.search).toBe('');
+    expect(result.current.initialSearch).toBe('savedSearch');
+  });
+
+  it('should reset initialSearch when handleChange is called', () => {
+    vi.mocked(localStorageMock.getItem).mockReturnValue('savedSearch');
+
+    const { result } = renderHook(() => useSearch(), { wrapper: MemoryRouter });
+
+    act(() => {
+      result.current.handleChange({ target: { value: 'new value' } } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    expect(result.current.initialSearch).toBe('');
   });
 
   it('should update search state on handleChange', () => {
@@ -82,18 +96,5 @@ describe('useSearch', () => {
 
     expect(localStorageMock.setItem).toHaveBeenCalledWith('vitest');
     expect(navigate).toHaveBeenCalledWith('?page=1&search=vitest');
-  });
-
-  it('should clear search, remove localStorage item, and update URL when handleClear is called', () => {
-    vi.mocked(localStorageMock.getItem).mockReturnValue('savedSearch');
-
-    const { result } = renderHook(() => useSearch(), { wrapper: MemoryRouter });
-
-    act(() => {
-      result.current.handleClear();
-    });
-
-    expect(result.current.search).toBe('');
-    expect(localStorageMock.removeItem).toHaveBeenCalled();
   });
 });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1739044925737" clover="3.2.0">
-  <project timestamp="1739044925737" name="All files">
-    <metrics statements="672" coveredstatements="649" conditionals="114" coveredconditionals="110" methods="57" coveredmethods="55" elements="843" coveredelements="814" complexity="0" loc="672" ncloc="672" packages="31" files="49" classes="49"/>
+<coverage generated="1739084422807" clover="3.2.0">
+  <project timestamp="1739084422807" name="All files">
+    <metrics statements="710" coveredstatements="687" conditionals="123" coveredconditionals="116" methods="57" coveredmethods="55" elements="890" coveredelements="858" complexity="0" loc="710" ncloc="710" packages="31" files="50" classes="50"/>
     <package name="src">
       <metrics statements="51" coveredstatements="30" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="App.tsx" path="C:\ab3\Reaact\RSS-React\src\App.tsx">
@@ -208,14 +208,14 @@
       <file name="IconButton.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\IconButton\IconButton.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="15" type="stmt"/>
-        <line num="15" count="15" type="stmt"/>
-        <line num="16" count="15" type="stmt"/>
-        <line num="17" count="15" type="stmt"/>
-        <line num="18" count="15" type="stmt"/>
-        <line num="20" count="15" type="stmt"/>
-        <line num="21" count="15" type="stmt"/>
+        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.UI.Input">
@@ -224,29 +224,32 @@
         <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="8" type="stmt"/>
-        <line num="12" count="8" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="16" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
       </file>
     </package>
     <package name="src.UI.Link">
-      <metrics statements="26" coveredstatements="26" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="29" coveredstatements="29" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="Link.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\Link\Link.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="13" type="stmt"/>
-        <line num="16" count="13" type="stmt"/>
-        <line num="17" count="13" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="21" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="13" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="20" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="15" type="stmt"/>
       </file>
       <file name="SearchLink.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\Link\SearchLink.tsx">
         <metrics statements="14" coveredstatements="14" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -331,27 +334,27 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="18" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
-        <line num="30" count="5" type="stmt"/>
-        <line num="31" count="5" type="stmt"/>
-        <line num="32" count="5" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
-        <line num="40" count="5" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
-        <line num="43" count="5" type="stmt"/>
-        <line num="44" count="5" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="27" count="7" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="34" count="7" type="stmt"/>
+        <line num="35" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="40" count="7" type="stmt"/>
+        <line num="42" count="7" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="7" type="stmt"/>
       </file>
     </package>
     <package name="src.api">
@@ -396,48 +399,59 @@
       </file>
     </package>
     <package name="src.components.Character">
-      <metrics statements="23" coveredstatements="23" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="32" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Character.tsx" path="C:\ab3\Reaact\RSS-React\src\components\Character\Character.tsx">
-        <metrics statements="23" coveredstatements="23" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="32" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="16" count="4" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
-        <line num="26" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="27" count="16" type="stmt"/>
-        <line num="28" count="16" type="stmt"/>
-        <line num="29" count="16" type="stmt"/>
-        <line num="31" count="16" type="stmt"/>
-        <line num="32" count="16" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
         <line num="33" count="4" type="stmt"/>
         <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="16" type="stmt"/>
+        <line num="40" count="16" type="stmt"/>
+        <line num="41" count="16" type="stmt"/>
+        <line num="43" count="16" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Characters">
-      <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Characters.tsx" path="C:\ab3\Reaact\RSS-React\src\components\Characters\Characters.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="4" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ErrorBoundary">
@@ -484,9 +498,9 @@
       </file>
     </package>
     <package name="src.components.Header">
-      <metrics statements="29" coveredstatements="29" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="30" coveredstatements="30" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="Header.tsx" path="C:\ab3\Reaact\RSS-React\src\components\Header\Header.tsx">
-        <metrics statements="29" coveredstatements="29" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="30" coveredstatements="30" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -494,28 +508,29 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Pagination">
@@ -569,63 +584,84 @@
       </file>
     </package>
     <package name="src.hooks">
-      <metrics statements="51" coveredstatements="51" conditionals="16" coveredconditionals="16" methods="8" coveredmethods="8"/>
+      <metrics statements="69" coveredstatements="69" conditionals="22" coveredconditionals="20" methods="7" coveredmethods="7"/>
+      <file name="useDetailsHandler.ts" path="C:\ab3\Reaact\RSS-React\src\hooks\useDetailsHandler.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="9" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+      </file>
       <file name="useLocaLStorage.ts" path="C:\ab3\Reaact\RSS-React\src\hooks\useLocaLStorage.ts">
-        <metrics statements="21" coveredstatements="21" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="4"/>
+        <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="10" methods="4" coveredmethods="4"/>
         <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="8" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
-        <line num="16" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="19" count="4" type="cond" truecount="3" falsecount="0"/>
         <line num="21" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="23" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
-        <line num="28" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
       </file>
       <file name="useSearch.ts" path="C:\ab3\Reaact\RSS-React\src\hooks\useSearch.ts">
-        <metrics statements="30" coveredstatements="30" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
+        <metrics statements="35" coveredstatements="35" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="10" count="7" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
-        <line num="12" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="7" type="stmt"/>
-        <line num="16" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="24" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="28" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="33" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="25" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="31" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="35" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="40" count="7" type="stmt"/>
-        <line num="41" count="7" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="44" count="10" type="stmt"/>
       </file>
     </package>
     <package name="src.hooks.useFetch">
@@ -801,16 +837,21 @@
       </file>
     </package>
     <package name="src.pages.Redirects">
-      <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="RedirectToCharacters.tsx" path="C:\ab3\Reaact\RSS-React\src\pages\Redirects\RedirectToCharacters.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\ab3\Reaact\RSS-React\src\pages\Redirects\index.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -845,7 +886,7 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="16" coveredstatements="16" conditionals="13" coveredconditionals="13" methods="3" coveredmethods="3"/>
+      <metrics statements="16" coveredstatements="16" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
       <file name="getSearchPage.ts" path="C:\ab3\Reaact\RSS-React\src\utils\getSearchPage.ts">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -858,18 +899,18 @@
         <line num="1" count="1" type="cond" truecount="3" falsecount="0"/>
       </file>
       <file name="handleRequest.ts" path="C:\ab3\Reaact\RSS-React\src\utils\handleRequest.ts">
-        <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="11" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="7" type="stmt"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="6" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="2" type="cond" truecount="3" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.utils.URLHelpers">
@@ -897,21 +938,21 @@
       <file name="searchHelper.ts" path="C:\ab3\Reaact\RSS-React\src\utils\URLHelpers\searchHelper.ts">
         <metrics statements="16" coveredstatements="16" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="16" type="stmt"/>
-        <line num="6" count="16" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="17" type="cond" truecount="1" falsecount="0"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="17" type="stmt"/>
+        <line num="6" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="18" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="16" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="15" type="stmt"/>
-        <line num="17" count="15" type="stmt"/>
-        <line num="18" count="16" type="stmt"/>
-        <line num="20" count="16" type="stmt"/>
-        <line num="21" count="16" type="stmt"/>
+        <line num="15" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="14" type="stmt"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="18" count="17" type="stmt"/>
+        <line num="20" count="17" type="stmt"/>
+        <line num="21" count="17" type="stmt"/>
       </file>
     </package>
   </project>

@@ -28,14 +28,14 @@ export const SearchForm: FC<Props> = ({ handleChange, value, handleClear, handle
 
     <IconButton
       type="submit"
-      width="30px"
+      style={{ width: '30px' }}
       aria-label="Search"
     >
       <Search fill="#313237" />
     </IconButton>
 
     <IconButton
-      width="30px"
+      style={{ width: '30px' }}
       onClick={handleClear}
       aria-label="Clear"
     >

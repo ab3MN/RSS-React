@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 
 import { Character } from './Character';
 
@@ -21,10 +22,12 @@ describe('Character component', () => {
 
   it('renders character name', () => {
     render(
-      <Character
-        character={mockCharacter}
-        id={1}
-      />
+      <MemoryRouter>
+        <Character
+          character={mockCharacter}
+          id={1}
+        />
+      </MemoryRouter>
     );
 
     const nameElement = screen.getByText('Luke Skywalker');
@@ -34,10 +37,12 @@ describe('Character component', () => {
 
   it('renders character descriptions', () => {
     render(
-      <Character
-        character={mockCharacter}
-        id={1}
-      />
+      <MemoryRouter>
+        <Character
+          character={mockCharacter}
+          id={1}
+        />
+      </MemoryRouter>
     );
 
     expect(screen.getByText('Tatooine')).toBeInTheDocument();
@@ -48,10 +53,12 @@ describe('Character component', () => {
 
   it('renders character image with correct src and alt', () => {
     render(
-      <Character
-        character={mockCharacter}
-        id={1}
-      />
+      <MemoryRouter>
+        <Character
+          character={mockCharacter}
+          id={1}
+        />
+      </MemoryRouter>
     );
 
     const image = screen.getByRole('img', { name: 'Luke Skywalker' });

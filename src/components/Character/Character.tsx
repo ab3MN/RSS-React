@@ -3,6 +3,9 @@ import { FC } from 'react';
 import s from './Chracter.module.scss';
 
 import { CharacterData } from '@/types/Characker.type';
+import Close from '@/assets/Close.svg?react';
+import { IconButton } from '@/UI/IconButton/IconButton';
+import { useDetailsHandler } from '@/hooks/useDetailsHandler';
 
 interface Props {
   character: CharacterData;
@@ -13,8 +16,17 @@ export const Character: FC<Props> = ({ character, id }) => {
   const { planet, name, hair_color: hair, eye_color: eye, birth_year: birthday } = character;
   const descriptions = { planet, hair, eye, birthday };
 
+  const { closeDetails } = useDetailsHandler();
+
   return (
     <article>
+      <IconButton
+        onClick={closeDetails}
+        style={{ display: 'flex', justifyContent: 'end' }}
+      >
+        <Close />
+      </IconButton>
+
       <div className={s.imgContainer}>
         <img
           className={s.img}

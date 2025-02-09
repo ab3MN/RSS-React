@@ -35,7 +35,7 @@ const CharactersPage = () => {
         return (
           <EmptyContainer
             title="No Characters Found"
-            pathToImg="./not-found.png"
+            pathToImg="/not-found.png"
             alt="Not Found"
           />
         );

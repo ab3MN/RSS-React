@@ -7,7 +7,9 @@ import { PATH } from '@/constants/path';
 import { useSearch } from '@/hooks/useSearch';
 
 export const Header = () => {
-  const { search, handleChange, handleClear, handleSubmit } = useSearch();
+  const { search, handleChange, handleClear, handleSubmit, initialSearch } = useSearch();
+
+  const value = search ? search : initialSearch;
 
   return (
     <header className={s.container}>
@@ -28,7 +30,7 @@ export const Header = () => {
           handleChange={handleChange}
           handleClear={handleClear}
           handleSubmit={handleSubmit}
-          value={search}
+          value={value}
         />
       </div>
     </header>

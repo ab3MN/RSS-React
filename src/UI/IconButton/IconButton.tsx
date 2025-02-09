@@ -6,16 +6,15 @@ interface Props {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   children: ReactNode;
-  width?: string;
-  height?: string;
+  style?: { [key: string]: string };
 }
 
-export const IconButton: FC<Props> = ({ onClick, children, width, height, type = 'button' }) => (
+export const IconButton: FC<Props> = ({ onClick, children, style, type = 'button' }) => (
   <button
     className={s.iconButton}
     type={type}
     onClick={onClick}
-    style={{ width, height }}
+    style={style}
   >
     {children}
   </button>

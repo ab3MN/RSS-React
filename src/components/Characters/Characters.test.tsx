@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 
 import { Characters } from './Characters';
 
@@ -58,7 +59,11 @@ describe('Characters component', () => {
   };
 
   it('renders character list', () => {
-    render(<Characters data={mockData} />);
+    render(
+      <MemoryRouter>
+        <Characters data={mockData} />
+      </MemoryRouter>
+    );
 
     const characters = screen.getAllByTestId('character');
 
@@ -68,7 +73,11 @@ describe('Characters component', () => {
   });
 
   it('renders pagination with correct total pages', () => {
-    render(<Characters data={mockData} />);
+    render(
+      <MemoryRouter>
+        <Characters data={mockData} />
+      </MemoryRouter>
+    );
 
     const pagination = screen.getByTestId('pagination');
 

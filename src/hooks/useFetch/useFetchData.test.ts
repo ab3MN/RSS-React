@@ -6,10 +6,6 @@ import { useFetchData } from './useFetchData';
 const mockFetchData = vi.fn();
 
 describe('useFetchData', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('should initialize with default state', () => {
     const { result } = renderHook(() => useFetchData([], mockFetchData));
 

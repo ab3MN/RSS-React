@@ -17,6 +17,9 @@ export const CustomLink: FC<Props> = ({ path, label, children, state, style = {}
     to={path}
     state={state}
     style={style}
+    onClick={(e) => {
+      e.stopPropagation();
+    }}
   >
     {children ? children : label}
   </Link>

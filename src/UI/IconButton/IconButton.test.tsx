@@ -28,22 +28,6 @@ describe('IconButton', () => {
     expect(onClickMock).toHaveBeenCalledTimes(1);
   });
 
-  test('should render button with custom width and height', () => {
-    render(
-      <IconButton
-        width="100px"
-        height="50px"
-      >
-        <span>Click Me</span>
-      </IconButton>
-    );
-
-    const button = screen.getByText('Click Me').closest('button');
-
-    expect(button).toHaveStyle('width: 100px');
-    expect(button).toHaveStyle('height: 50px');
-  });
-
   test('should render button with default type "button"', () => {
     render(
       <IconButton>

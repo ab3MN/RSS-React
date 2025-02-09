@@ -1,41 +1,44 @@
-import { ChangeEvent, FormEvent, useLayoutEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { ChangeEvent, FormEvent, useCallback, useLayoutEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useLocaLStorage from './useLocaLStorage';
 
-import { getSearchWith } from '@/utils/URLHelpers';
-
 export const useSearch = () => {
   const [search, setSearch] = useState('');
+  const [initialSearch, setInitialSearch] = useState('');
   const navigate = useNavigate();
   const { getItem, removeItem, setItem } = useLocaLStorage('search');
   const storedSearch = (getItem() as string) || '';
 
-  const [searchParams] = useSearchParams();
-
   useLayoutEffect(() => {
-    if (storedSearch) {
-      const path = getSearchWith(searchParams, { search: storedSearch });
+    if (storedSearch) setInitialSearch(storedSearch);
+  }, [storedSearch]);
 
-      navigate(`?${path}`);
-    }
-  }, [storedSearch, navigate, search, searchParams]);
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setSearch(event.target.value);
+      if (initialSearch) setInitialSearch('');
+    },
+    [initialSearch]
+  );
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
-
-  const handleClear = () => {
+  const handleClear = useCallback(() => {
     setSearch('');
     removeItem();
-  };
+  }, [removeItem]);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    setItem(search.trim().toLowerCase());
-    navigate(`?page=1&search=${search}`);
-  };
+      const searchValue = search === '' ? initialSearch : search.trim().toLowerCase();
+      const params = searchValue ? `?page=1&search=${searchValue}` : `?page=1`;
 
-  return { search, handleChange, handleClear, setItem, handleSubmit };
+      setItem(searchValue);
+      navigate(params);
+    },
+    [search, initialSearch, setItem, navigate]
+  );
+
+  return { search, handleChange, handleClear, setItem, handleSubmit, initialSearch };
 };
