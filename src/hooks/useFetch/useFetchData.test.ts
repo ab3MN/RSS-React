@@ -6,11 +6,15 @@ import { useFetchData } from './useFetchData';
 const mockFetchData = vi.fn();
 
 describe('useFetchData', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('should initialize with default state', () => {
     const { result } = renderHook(() => useFetchData([], mockFetchData));
 
     expect(result.current.data).toEqual([]);
-    expect(result.current.isLoading).toBe(false);
+    expect(result.current.isLoading).toBe(true);
     expect(result.current.error).toBeNull();
   });
 

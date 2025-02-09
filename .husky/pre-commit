@@ -3,4 +3,6 @@
 
 npm run type-check
 
+npm run coverage
+
 npx lint-staged

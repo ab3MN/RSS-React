@@ -63,7 +63,7 @@ describe('Character component', () => {
 
     const image = screen.getByRole('img', { name: 'Luke Skywalker' });
 
-    expect(image).toHaveAttribute('src', '../src/assets/People/1.jpg');
+    expect(image).toHaveAttribute('src', '/People/1.jpg');
     expect(image).toHaveAttribute('alt', 'Luke Skywalker');
   });
 });
