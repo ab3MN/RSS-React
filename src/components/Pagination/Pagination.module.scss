@@ -6,12 +6,19 @@
 }
 
 .item {
-  @include mixin.flex-container(center, center);
   width: 36px;
   height: 36px;
-  border: 1px solid var(--light-element-color);
+  @include mixin.flex-container(center, center);
+  @include mixin.border(1px, var(--light-element-color));
+}
+
+.link {
+  transition: all constants.$transition-time;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    border-color: var(--button-hover-bgc-color);
+  }
 }
 
 .disabled {
@@ -23,6 +30,9 @@
   }
 }
 
-.link {
-  @include mixin.flex-container(center, center);
+.page {
+  color: var(--white-color);
+  border-color: var(--button-hover-bgc-color);
+  background-color: var(--button-hover-bgc-color);
+  box-shadow: 0 3px 13px var(--button-hover-bgc-color);
 }

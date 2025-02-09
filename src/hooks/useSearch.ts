@@ -11,7 +11,11 @@ export const useSearch = () => {
   const storedSearch = (getItem() as string) || '';
 
   useLayoutEffect(() => {
-    if (storedSearch) setInitialSearch(storedSearch);
+    if (storedSearch) {
+      setInitialSearch(storedSearch);
+    } else {
+      setInitialSearch('');
+    }
   }, [storedSearch]);
 
   const handleChange = useCallback(

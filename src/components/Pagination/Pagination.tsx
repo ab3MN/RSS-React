@@ -20,7 +20,7 @@ export const Pagination: FC<IPagination> = ({ totalPage }) => {
   return (
     <ul className={s.list}>
       <li
-        className={cn(s.item, { [s.disabled]: page === 1 })}
+        className={cn(s.item, s.link, { [s.disabled]: page === 1 })}
         data-testid="prev"
       >
         <SearchLink params={{ page: String(page - 1) }}>
@@ -28,8 +28,10 @@ export const Pagination: FC<IPagination> = ({ totalPage }) => {
         </SearchLink>
       </li>
 
+      <p className={cn(s.item, s.page)}>{page}</p>
+
       <li
-        className={cn(s.item, { [s.disabled]: page === totalPage })}
+        className={cn(s.item, s.link, { [s.disabled]: page === totalPage })}
         data-testid="next"
       >
         <SearchLink params={{ page: String(page + 1) }}>

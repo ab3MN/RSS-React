@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { CustomLink } from '../Link/Link';
 
@@ -18,25 +18,19 @@ export const CharacterItem: FC<Props> = ({ character }) => {
   const descriptions = { planet, hair, eye, birthday };
   const id = getIdFromUrl(url);
 
-  const { search } = useLocation();
-  const searchParams = new URLSearchParams(search);
+  const [searchParams] = useSearchParams();
   const path = `./?${getSearchWith(searchParams, { details: id })}`;
 
   return (
     <li className={s.item}>
       <article>
-        <CustomLink
-          path={path}
-          state={{ id }}
-        >
-          <div className={s.imgContainer}>
-            <img
-              className={s.img}
-              src={`../src/assets/People/${id}.jpg`}
-              alt={name}
-            />
-          </div>
-        </CustomLink>
+        <div className={s.imgContainer}>
+          <img
+            className={s.img}
+            src={`../src/assets/People/${id}.jpg`}
+            alt={name}
+          />
+        </div>
 
         <h2 className={s.itemName}>
           <CustomLink

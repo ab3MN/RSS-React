@@ -4,7 +4,7 @@ import { handleError } from '@/utils/handleError';
 
 export const useFetchData = <T, P, R extends T | string>(initialState: T, fetchDataFn: (param: P) => Promise<R>) => {
   const [data, setData] = useState<T>(initialState);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
 
   const fetchData = useCallback(
