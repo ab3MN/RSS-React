@@ -1,13 +1,18 @@
 import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { CustomLink } from '../Link/Link';
+import { Button } from '../Button/Button';
 
 import s from './CharacterItem.module.scss';
 
 import { CharacterData } from '@/types/Characker.type';
 import { getIdFromUrl } from '@/utils/URLHelpers/getIdFromUrl';
 import { getSearchWith } from '@/utils/URLHelpers';
+import { toogleItemToCart } from '@/redux/slices';
+import { useAppSelector } from '@/redux/hooks';
+import { isItemExistInCart } from '@/utils/isItemExistInCart';
 
 interface Props {
   character: CharacterData;
@@ -17,6 +22,8 @@ export const CharacterItem: FC<Props> = ({ character }) => {
   const { url, planet, name, hair_color: hair, eye_color: eye, birth_year: birthday } = character;
   const descriptions = { planet, hair, eye, birthday };
   const id = getIdFromUrl(url);
+  const dispatch = useDispatch();
+  const { cart } = useAppSelector((state) => state.cartReducer);
 
   const [searchParams] = useSearchParams();
   const path = `./?${getSearchWith(searchParams, { details: id })}`;
@@ -49,6 +56,13 @@ export const CharacterItem: FC<Props> = ({ character }) => {
             <span>{key}</span> {value}
           </p>
         ))}
+
+        <Button
+          label="Add to Cart"
+          onClick={() => dispatch(toogleItemToCart(character))}
+          isSelected={!!isItemExistInCart(cart, character)}
+          secondaryLabel="Added to Cart"
+        />
       </article>
     </li>
   );

@@ -1,23 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CharacterData } from '@/types/Characker.type';
-import { Cart } from '@/types/Cart.types';
 
-export interface CartState<> {
-  cart: Cart<CharacterData>;
+export interface Cart {
+  items: CharacterData[];
+  quantity: number;
 }
 
-const initialState: CartState = {
+export interface CartState {
+  cart: Cart;
+}
+
+const createInitialState = (): CartState => ({
   cart: {
     items: [],
     quantity: 0,
   },
-};
+});
 
 const createCartSlice = () =>
   createSlice({
     name: 'cart',
-    initialState: initialState,
+    initialState: createInitialState(),
     reducers: {
       toogleItemToCart: (state, { payload }: PayloadAction<CharacterData>) => {
         const isItemExistInCart = state.cart.items.find(({ name }) => name === payload.name);

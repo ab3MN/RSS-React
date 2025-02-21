@@ -4,7 +4,7 @@ import { EmptyContainer } from '@/UI/EmptyContainer/EmptyContainer';
 import { Character } from '@/components/Character/Character';
 import { Loader } from '@/UI/Loader/Loader';
 import { Container } from '@/UI/Container/Container';
-import { useGetCharacterByIdQuery } from '@/redux/slices/character.slice';
+import { useGetCharacterByIdQuery } from '@/redux/slices';
 
 const CharacterPage = () => {
   const [searchParams] = useSearchParams();

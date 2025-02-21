@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
+import { Provider } from 'react-redux';
 
 import { CharacterItem } from './CharacterItem';
+
+import { store } from '@/redux/store';
 
 vi.mock('@/utils/URLHelpers/getIdFromUrl', () => ({
   getIdFromUrl: vi.fn().mockReturnValue('1'),
@@ -28,9 +31,11 @@ describe('CharacterItem', () => {
     };
 
     render(
-      <MemoryRouter>
-        <CharacterItem character={character} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <CharacterItem character={character} />
+        </MemoryRouter>{' '}
+      </Provider>
     );
 
     expect(screen.getByText('Luke Skywalker')).toBeInTheDocument();

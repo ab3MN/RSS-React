@@ -1,0 +1,18 @@
+@use '@/styles/abstract/mixines';
+@use '@/styles/abstract/constants';
+
+.container {
+  width: 100%;
+  padding-block: 20px;
+  border-top: 1px solid var(--element-color);
+  background-color: var(--main-bg-color);
+  position: fixed;
+  bottom: 0;
+  transition: transform 2s ease-in-out;
+  @include mixines.flex-container(center, space-around, row, 20px);
+
+  > button,
+  a {
+    width: 150px;
+  }
+}

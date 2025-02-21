@@ -7,15 +7,15 @@ import { EmptyContainer } from '@/UI/EmptyContainer/EmptyContainer';
 import { SkeletoneList } from '@/UI/Sceletones/SkeletoneList/SkeletoneList';
 import { Container } from '@/UI/Container/Container';
 import { getSearchPage } from '@/utils/getSearchPage';
-import { useGetCharactersQuery } from '@/redux/slices/character.slice';
 import { getURLSearchParams } from '@/utils/URLHelpers';
+import { useGetCharactersQuery } from '@/redux/slices';
 
 const CharactersPage = () => {
   const [searchParams] = useSearchParams();
-
   const page = String(getSearchPage(searchParams.get('page')));
   const search = searchParams.get('search') || '';
   const details = searchParams.get('details');
+
   const { data, isLoading, isError } = useGetCharactersQuery(getURLSearchParams({ search, page }));
 
   const renderView = () => {
@@ -27,7 +27,7 @@ const CharactersPage = () => {
           </div>
         );
 
-      case !isLoading && !!isError:
+      case (!isLoading && !!isError) || !data?.results.length:
         return (
           <EmptyContainer
             title="No Characters Found"

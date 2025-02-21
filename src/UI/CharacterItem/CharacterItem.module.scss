@@ -22,6 +22,7 @@
   color: var(--text-color);
   margin-bottom: 4px;
   text-transform: capitalize;
+  padding-bottom: 10px;
 
   @include mixin.flex-container(center, space-between);
 

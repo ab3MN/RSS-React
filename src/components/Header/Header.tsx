@@ -5,6 +5,7 @@ import { SearchForm } from '@/UI/SearchForm/SearchForm';
 import Logo from '@/assets/Logo.svg?react';
 import { PATH } from '@/constants/path';
 import { useSearch } from '@/hooks/useSearch';
+import NavigationLink from '@/UI/NavLink/NavigationLink';
 
 export const Header = () => {
   const { search, handleChange, handleClear, handleSubmit, initialSearch } = useSearch();
@@ -13,17 +14,24 @@ export const Header = () => {
 
   return (
     <header className={s.container}>
-      <CustomLink
-        path={PATH.HOME}
-        style={{ justifyContent: 'start' }}
-      >
-        <h1
-          className={s.logo}
-          onClick={handleClear}
-        >
-          <Logo />
-        </h1>
-      </CustomLink>
+      <div className={s.menu}>
+        <CustomLink path={PATH.HOME}>
+          <h1
+            className={s.logo}
+            onClick={handleClear}
+          >
+            <Logo />
+          </h1>
+        </CustomLink>
+        <NavigationLink
+          to={PATH.CHARACTERS}
+          label="Characters"
+        />
+        <NavigationLink
+          to={PATH.CART}
+          label="Cart"
+        />
+      </div>
 
       <div className={s.search}>
         <SearchForm

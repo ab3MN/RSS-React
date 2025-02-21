@@ -18,6 +18,12 @@ export const Root = () => (
         />
 
         <Route
+          index
+          path={PATH.CART}
+          element={<Pages.CartPage />}
+        />
+
+        <Route
           path={PATH.CHARACTERS}
           element={<Pages.CharactersPage />}
         >
