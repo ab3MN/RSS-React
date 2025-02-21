@@ -25,18 +25,19 @@ export const CharacterItem: FC<Props> = ({ character }) => {
     <li className={s.item}>
       <article>
         <div className={s.imgContainer}>
-          <img
-            className={s.img}
-            src={`/People/${id}.jpg`}
-            alt={name}
-          />
+          <CustomLink path={path}>
+            <img
+              className={s.img}
+              src={`/People/${id}.jpg`}
+              alt={name}
+            />
+          </CustomLink>
         </div>
 
         <h2 className={s.itemName}>
           <CustomLink
             label={name}
             path={path}
-            state={{ id }}
           />
         </h2>
 

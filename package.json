@@ -20,13 +20,16 @@
     "format": "npm run prettier:fix && npm run stylelint:fix && npm run lint:fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "@testing-library/user-event": "^14.6.1",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
+    "redux-persist": "^6.0.0",
     "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
