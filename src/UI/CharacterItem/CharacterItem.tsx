@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { shallowEqual, useDispatch } from 'react-redux';
 
 import { CustomLink } from '../Link/Link';
 import { Button } from '../Button/Button';
@@ -13,6 +13,7 @@ import { getSearchWith } from '@/utils/URLHelpers';
 import { toogleItemToCart } from '@/redux/slices';
 import { useAppSelector } from '@/redux/hooks';
 import { isItemExistInCart } from '@/utils/isItemExistInCart';
+import { cartSelector } from '@/redux/selectors';
 
 interface Props {
   character: CharacterData;
@@ -23,7 +24,7 @@ export const CharacterItem: FC<Props> = ({ character }) => {
   const descriptions = { planet, hair, eye, birthday };
   const id = getIdFromUrl(url);
   const dispatch = useDispatch();
-  const { cart } = useAppSelector((state) => state.cartReducer);
+  const cart = useAppSelector(cartSelector, shallowEqual);
 
   const [searchParams] = useSearchParams();
   const path = `./?${getSearchWith(searchParams, { details: id })}`;

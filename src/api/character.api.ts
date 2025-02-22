@@ -6,7 +6,7 @@ import { Planet } from '@/types/Planet.type';
 import { BASE_URL, ENDPOINTS } from '@/constants/URL';
 import { getIdFromUrl } from '@/utils/URLHelpers';
 
-const planetCache = new Map<string, string>();
+export const planetCache = new Map<string, string>();
 
 export const getPlanet = async (homeworld: string): Promise<string> => {
   if (planetCache.has(homeworld)) return planetCache.get(homeworld)!;

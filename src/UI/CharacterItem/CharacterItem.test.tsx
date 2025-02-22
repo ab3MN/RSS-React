@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import { Provider } from 'react-redux';
@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { CharacterItem } from './CharacterItem';
 
 import { store } from '@/redux/store';
+import { characterData } from '@/mocks/CharackersData';
 
 vi.mock('@/utils/URLHelpers/getIdFromUrl', () => ({
   getIdFromUrl: vi.fn().mockReturnValue('1'),
@@ -17,23 +18,10 @@ vi.mock('@/utils/URLHelpers', () => ({
 
 describe('CharacterItem', () => {
   it('should render character details correctly', () => {
-    const character = {
-      url: 'https://swapi.dev/api/people/1/',
-      name: 'Luke Skywalker',
-      planet: 'Tatooine',
-      hair_color: 'Blond',
-      eye_color: 'Blue',
-      birth_year: '19BBY',
-      homeworld: '1',
-      films: [],
-      vehicles: [],
-      starships: [],
-    };
-
     render(
       <Provider store={store}>
         <MemoryRouter>
-          <CharacterItem character={character} />
+          <CharacterItem character={characterData} />
         </MemoryRouter>{' '}
       </Provider>
     );
@@ -48,5 +36,21 @@ describe('CharacterItem', () => {
     const img = screen.getByAltText('Luke Skywalker') as HTMLImageElement;
 
     expect(img.src).toContain('1.jpg');
+  });
+
+  it('should add item to Cart', () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <CharacterItem character={characterData} />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    const button = screen.getByText('Add to Cart');
+
+    fireEvent.click(button);
+
+    expect(screen.getByText('Added to Cart')).toBeInTheDocument();
   });
 });

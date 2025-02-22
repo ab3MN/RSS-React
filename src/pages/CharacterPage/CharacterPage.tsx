@@ -21,7 +21,7 @@ const CharacterPage = () => {
       case !isLoading && !!isError:
         return (
           <EmptyContainer
-            title="No Characters Found"
+            title="No Character Found"
             pathToImg="/not-found.png"
             alt="Not Found"
           />
@@ -38,7 +38,7 @@ const CharacterPage = () => {
       default:
         return (
           <EmptyContainer
-            title="No Characters Found"
+            title="No Character Found"
             pathToImg="/not-found.png"
             alt="Not Found"
           />

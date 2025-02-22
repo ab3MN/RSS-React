@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,48 +87,48 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CharacterData } from '@/types/Characker.type';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export const getCharactersFileData = (characters: CharacterData[]): string =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const data = characters.reduce((acc, next, i): string =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    let fileData = acc;</span>
+export const getCharactersFileData = (characters: CharacterData[]): string =&gt; {
+  const data = characters.reduce((acc, next, i): string =&gt; {
+    let fileData = acc;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    const { name, hair_color: hair, eye_color: eye, birth_year: birth, planet, url } = next;</span>
+    const { name, hair_color: hair, eye_color: eye, birth_year: birth, planet, url } = next;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    fileData += `${i + 1}.Character: ${name}\n`;</span>
-<span class="cstat-no" title="statement not covered" >    fileData += `Hair: ${hair === 'n/a' ? 'unknown' : hair}\n`;</span>
-<span class="cstat-no" title="statement not covered" >    fileData += `Eye: ${eye}\n`;</span>
-<span class="cstat-no" title="statement not covered" >    fileData += `Birthday: ${birth}\n`;</span>
-<span class="cstat-no" title="statement not covered" >    fileData += `Homeworld: ${planet}\n`;</span>
-<span class="cstat-no" title="statement not covered" >    fileData += `Details : ${url}\n`;</span>
+    fileData += `${i + 1}.Character: ${name}\n`;
+    fileData += `Hair: ${hair === 'n/a' ? 'unknown' : hair}\n`;
+    fileData += `Eye: ${eye}\n`;
+    fileData += `Birthday: ${birth}\n`;
+    fileData += `Homeworld: ${planet}\n`;
+    fileData += `Details : ${url}\n`;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    fileData += `___________________________________________________________________________________________________\n \n`;</span>
+    fileData += `___________________________________________________________________________________________________\n \n`;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return fileData;</span>
-<span class="cstat-no" title="statement not covered" >  }, '');</span>
+    return fileData;
+  }, '');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return `Selected characters:\n \n${data}`;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+  return `Selected characters:\n \n${data}`;
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -136,7 +136,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-21T20:34:32.197Z
+                at 2025-02-22T20:50:20.040Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
