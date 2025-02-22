@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import './styles/main.scss';
 import { Root } from './Root';
 import { persistor, store } from './redux/store';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,8 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         loading={null}
         persistor={persistor}
       >
-        <Root />
-      </PersistGate>{' '}
+        <ThemeProvider>
+          <Root />
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

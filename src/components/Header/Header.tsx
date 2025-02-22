@@ -1,3 +1,5 @@
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
+
 import s from './Header.module.scss';
 
 import { CustomLink } from '@/UI/Link/Link';
@@ -33,13 +35,16 @@ export const Header = () => {
         />
       </div>
 
-      <div className={s.search}>
-        <SearchForm
-          handleChange={handleChange}
-          handleClear={handleClear}
-          handleSubmit={handleSubmit}
-          value={value}
-        />
+      <div style={{ display: 'flex' }}>
+        <ThemeSwitcher />
+        <div className={s.search}>
+          <SearchForm
+            handleChange={handleChange}
+            handleClear={handleClear}
+            handleSubmit={handleSubmit}
+            value={value}
+          />
+        </div>
       </div>
     </header>
   );

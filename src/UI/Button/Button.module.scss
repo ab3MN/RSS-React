@@ -12,14 +12,6 @@
   @include mixin.flex-container(center, center);
   @include mixin.border(1px, transparent);
 
-  &:disabled {
-    background-color: var(--button-selected-bgc-color);
-    color: var(--button-selected-color);
-    border: 1px solid var(--button-selected-border-color);
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-
   &:hover:not(:disabled) {
     background-color: var(--button-hover-bgc-color);
     box-shadow: 0 3px 13px var(--button-hover-bgc-color);

@@ -14,7 +14,7 @@ interface Props {
 export const Button: FC<Props> = ({ label, type, onClick, isSelected, secondaryLabel }) => (
   <button
     type={type}
-    className={cn(s.button, 'primary-text')}
+    className={cn(s.button, 'primary-text', { [s.selected]: isSelected })}
     onClick={onClick}
     aria-pressed={isSelected}
   >

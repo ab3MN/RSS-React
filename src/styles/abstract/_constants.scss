@@ -1,20 +1,51 @@
 :root {
-  --white-color: #fff;
   --green-color: #27ae60;
-  --light-element-color: #e2e6e9;
-  --light-text-color: #89939a;
-  --light-border-icon-color: #b4bdc3;
+  --purple-color: #905bff;
+  --hover-purple-color: #a378ff;
   --light-main-text-color: #313237;
+  --light-text-color: #89939a;
+  --light-element-color: #e2e6e9;
+  --light-back-drop-color: #0003;
+  --white-color: #fff;
+  --dark-main-text-color: #f1f2f9;
+  --dark-primary-color: #0f1121;
+  --dark-text-color: #75767f;
+  --dark-element-color: #3b3e4a;
+  --dark-hover-color: #4a4d58;
 }
 
 #root {
-  --main-color: var(--light-main-text-color);
-  --main-bg-color: var(--white-color);
-  --element-color: var(--light-element-color);
   --button-bgc-color: var(--main-color);
+  --button-hover-color: var(--button-hover-light-color);
   --button-hover-bgc-color: var(--main-color);
+  --button-selected-bgc-color: var(--white-color);
+  --button-selected-color: var(--green-color);
+  --button-selected-border-color: var(--element-color);
+  --button-selected-hover-border-color: var(--main-color);
+  --main-bg-color: var(--white-color);
+  --main-color: var(--light-main-text-color);
   --text-color: var(--light-text-color);
+  --icon-bg-color: var(--white-color);
   --border-icon-color: var(--light-border-icon-color);
+  --element-color: var(--light-element-color);
+  --hover-icon-color: var(--text-color);
+}
+
+#root.dark {
+  --button-bgc-color: var(--purple-color);
+  --button-hover-bgc-color: var(--purple-color);
+  --button-hover-color: var(--hover-purple-color);
+  --button-selected-bgc-color: var(--dark-icon-bg-color);
+  --button-selected-color: var(--white-color);
+  --button-selected-border-color: var(--dark-icon-bg-color);
+  --button-selected-hover-border-color: var(--purple-color);
+  --main-bg-color: var(--dark-primary-color);
+  --main-color: var(--dark-main-text-color);
+  --text-color: var(--dark-text-color);
+  --icon-bg-color: var(--dark-icon-bg-color);
+  --border-icon-color: var(--dark-icon-bg-color);
+  --element-color: var(--dark-element-color);
+  --hover-icon-color: var(--text-color);
 }
 
 $transition-time: 0.3s;
