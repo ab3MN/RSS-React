@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { CartList } from './CartList/CartList';
+import s from './Cart.module.scss';
 
 import { Cart } from '@/types/Cart.types';
 import { CharacterData } from '@/types/Characker.type';
@@ -15,7 +16,9 @@ export const CartComponent: FC<Props> = ({ cart }) => {
   return (
     <>
       <CartList items={items} />
-      <p>Total Quantity {quantity}</p>
+      <p className={s.quantity}>
+        Total Quantity: <span>{quantity}</span>{' '}
+      </p>
     </>
   );
 };

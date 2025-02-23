@@ -1,0 +1,12 @@
+@use '@/styles/abstract/mixines';
+
+.quantity {
+  @include mixines.flex-container(center, end);
+  font-weight: 600;
+  font-size: 20px;
+
+  > span {
+    margin-left: 20px;
+    font-weight: 900;
+  }
+}

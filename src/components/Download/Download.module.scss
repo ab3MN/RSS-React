@@ -8,9 +8,10 @@
   background-color: var(--main-bg-color);
   position: fixed;
   bottom: 0;
-  transition: all 2s ease-in-out;
+  transition: transform constants.$transition-scale-time;
   transform: translateY(100px);
   @include mixines.flex-container(center, space-around, row, 20px);
+  z-index: 100;
 
   > button,
   a {
