@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { shallowEqual, useDispatch } from 'react-redux';
 
 import { CustomLink } from '../Link/Link';
-import { Button } from '../Button/Button';
 
 import s from './CharacterItem.module.scss';
 
@@ -32,23 +31,31 @@ export const CharacterItem: FC<Props> = ({ character }) => {
   return (
     <li className={s.item}>
       <article>
-        <div className={s.imgContainer}>
-          <CustomLink path={path}>
+        <CustomLink path={path}>
+          <div className={s.imgContainer}>
             <img
               className={s.img}
               src={`/People/${id}.jpg`}
               alt={name}
             />
-          </CustomLink>
-        </div>
+          </div>
+        </CustomLink>
+        <div className={s.nameContainer}>
+          <h2 className={s.itemName}>
+            <CustomLink
+              label={name}
+              path={path}
+            />
+          </h2>
 
-        <h2 className={s.itemName}>
-          <CustomLink
-            label={name}
-            path={path}
+          <input
+            data-testid="checkbox"
+            className={s.checkbox}
+            type="checkbox"
+            onChange={() => dispatch(toogleItemToCart(character))}
+            checked={!!isItemExistInCart(cart, character)}
           />
-        </h2>
-
+        </div>
         {Object.entries(descriptions).map(([key, value]) => (
           <p
             className={s.description}
@@ -57,13 +64,6 @@ export const CharacterItem: FC<Props> = ({ character }) => {
             <span>{key}</span> {value}
           </p>
         ))}
-
-        <Button
-          label="Add to Cart"
-          onClick={() => dispatch(toogleItemToCart(character))}
-          isSelected={!!isItemExistInCart(cart, character)}
-          secondaryLabel="Added to Cart"
-        />
       </article>
     </li>
   );

@@ -5,19 +5,16 @@ import s from './Button.module.scss';
 
 interface Props {
   label: string;
-  secondaryLabel?: string;
   type?: 'button' | 'submit' | 'reset';
-  isSelected?: boolean;
   onClick?: () => void;
 }
 
-export const Button: FC<Props> = ({ label, type, onClick, isSelected, secondaryLabel }) => (
+export const Button: FC<Props> = ({ label, type, onClick }) => (
   <button
     type={type}
-    className={cn(s.button, 'primary-text', { [s.selected]: isSelected })}
+    className={cn(s.button, 'primary-text')}
     onClick={onClick}
-    aria-pressed={isSelected}
   >
-    {isSelected && secondaryLabel ? secondaryLabel : label}
+    {label}
   </button>
 );

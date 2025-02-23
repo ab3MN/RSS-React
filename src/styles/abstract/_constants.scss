@@ -29,9 +29,13 @@
   --border-icon-color: var(--light-border-icon-color);
   --element-color: var(--light-element-color);
   --hover-icon-color: var(--text-color);
+  --checkbox-border-color: var(--text-color);
+  --checked-bgc-color: var(--light-main-text-color);
 }
 
 #root.dark {
+  --checkbox-border-color: var(--white-color);
+  --checked-bgc-color: var(--purple-color);
   --button-bgc-color: var(--purple-color);
   --button-hover-bgc-color: var(--purple-color);
   --button-hover-color: var(--hover-purple-color);

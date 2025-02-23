@@ -51,3 +51,32 @@
     }
   }
 }
+
+.name__container {
+  @include mixin.flex-container(center, space-between);
+
+  > input {
+    display: inline;
+    width: inherit;
+  }
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+  @include mixin.border(10px, var(--checkbox-border-color), 4px);
+}
+
+.checkbox:checked {
+  border-color: var(--checked-bgc-color);
+}
+
+.checkbox:checked::after {
+  content: '✔';
+  color: var(--white-color);
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

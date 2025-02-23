@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>53/53</span>
+                <span class='fraction'>55/55</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/53</span>
+                <span class='fraction'>55/55</span>
             </div>
         
             
@@ -138,7 +138,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,6 +175,13 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -183,7 +189,8 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -191,13 +198,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -208,7 +208,6 @@ import { useSearchParams } from 'react-router-dom';
 import { shallowEqual, useDispatch } from 'react-redux';
 &nbsp;
 import { CustomLink } from '../Link/Link';
-import { Button } from '../Button/Button';
 &nbsp;
 import s from './CharacterItem.module.scss';
 &nbsp;
@@ -237,23 +236,31 @@ export const CharacterItem: FC&lt;Props&gt; = ({ character }) =&gt; {
   return (
     &lt;li className={s.item}&gt;
       &lt;article&gt;
-        &lt;div className={s.imgContainer}&gt;
-          &lt;CustomLink path={path}&gt;
+        &lt;CustomLink path={path}&gt;
+          &lt;div className={s.imgContainer}&gt;
             &lt;img
               className={s.img}
               src={`/People/${id}.jpg`}
               alt={name}
             /&gt;
-          &lt;/CustomLink&gt;
-        &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/CustomLink&gt;
+        &lt;div className={s.nameContainer}&gt;
+          &lt;h2 className={s.itemName}&gt;
+            &lt;CustomLink
+              label={name}
+              path={path}
+            /&gt;
+          &lt;/h2&gt;
 &nbsp;
-        &lt;h2 className={s.itemName}&gt;
-          &lt;CustomLink
-            label={name}
-            path={path}
+          &lt;input
+            data-testid="checkbox"
+            className={s.checkbox}
+            type="checkbox"
+            onChange={() =&gt; dispatch(toogleItemToCart(character))}
+            checked={!!isItemExistInCart(cart, character)}
           /&gt;
-        &lt;/h2&gt;
-&nbsp;
+        &lt;/div&gt;
         {Object.entries(descriptions).map(([key, value]) =&gt; (
           &lt;p
             className={s.description}
@@ -262,13 +269,6 @@ export const CharacterItem: FC&lt;Props&gt; = ({ character }) =&gt; {
             &lt;span&gt;{key}&lt;/span&gt; {value}
           &lt;/p&gt;
         ))}
-&nbsp;
-        &lt;Button
-          label="Add to Cart"
-          onClick={() =&gt; dispatch(toogleItemToCart(character))}
-          isSelected={!!isItemExistInCart(cart, character)}
-          secondaryLabel="Added to Cart"
-        /&gt;
       &lt;/article&gt;
     &lt;/li&gt;
   );
@@ -280,7 +280,7 @@ export const CharacterItem: FC&lt;Props&gt; = ({ character }) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-23T11:34:22.146Z
+                at 2025-02-23T15:22:25.373Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -47,10 +47,10 @@ describe('CharacterItem', () => {
       </Provider>
     );
 
-    const button = screen.getByText('Add to Cart');
+    const checkbox = screen.getByTestId('checkbox');
 
-    fireEvent.click(button);
+    fireEvent.click(checkbox);
 
-    expect(screen.getByText('Added to Cart')).toBeInTheDocument();
+    expect(checkbox.hasAttribute('checked'));
   });
 });

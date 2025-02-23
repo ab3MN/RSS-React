@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1740310462473" clover="3.2.0">
-  <project timestamp="1740310462473" name="All files">
-    <metrics statements="1090" coveredstatements="1053" conditionals="161" coveredconditionals="152" methods="84" coveredmethods="76" elements="1335" coveredelements="1281" complexity="0" loc="1090" ncloc="1090" packages="43" files="72" classes="72"/>
+<coverage generated="1740324145666" clover="3.2.0">
+  <project timestamp="1740324145666" name="All files">
+    <metrics statements="1091" coveredstatements="1054" conditionals="158" coveredconditionals="149" methods="84" coveredmethods="76" elements="1333" coveredelements="1279" complexity="0" loc="1091" ncloc="1091" packages="43" files="72" classes="72"/>
     <package name="src">
       <metrics statements="72" coveredstatements="51" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="2"/>
       <file name="App.tsx" path="C:\ab3\Reaact\RSS-React\src\App.tsx">
@@ -96,19 +96,18 @@
       </file>
     </package>
     <package name="src.UI.Button">
-      <metrics statements="20" coveredstatements="20" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="Button.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\Button\Button.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="16" type="stmt"/>
-        <line num="16" count="16" type="stmt"/>
-        <line num="17" count="16" type="stmt"/>
-        <line num="18" count="16" type="stmt"/>
-        <line num="19" count="16" type="stmt"/>
-        <line num="21" count="16" type="cond" truecount="3" falsecount="0"/>
-        <line num="22" count="16" type="stmt"/>
+        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="19" count="9" type="stmt"/>
       </file>
       <file name="DownLoadLink.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\Button\DownLoadLink.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -125,28 +124,28 @@
       </file>
     </package>
     <package name="src.UI.CharacterItem">
-      <metrics statements="53" coveredstatements="53" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="55" coveredstatements="55" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="CharacterItem.tsx" path="C:\ab3\Reaact\RSS-React\src\UI\CharacterItem\CharacterItem.tsx">
-        <metrics statements="53" coveredstatements="53" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <metrics statements="55" coveredstatements="55" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="7" type="stmt"/>
         <line num="23" count="7" type="stmt"/>
         <line num="24" count="7" type="stmt"/>
         <line num="25" count="7" type="stmt"/>
         <line num="26" count="7" type="stmt"/>
-        <line num="27" count="7" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
         <line num="29" count="7" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
         <line num="32" count="7" type="stmt"/>
         <line num="33" count="7" type="stmt"/>
         <line num="34" count="7" type="stmt"/>
@@ -159,24 +158,26 @@
         <line num="41" count="7" type="stmt"/>
         <line num="42" count="7" type="stmt"/>
         <line num="43" count="7" type="stmt"/>
+        <line num="44" count="7" type="stmt"/>
         <line num="45" count="7" type="stmt"/>
         <line num="46" count="7" type="stmt"/>
         <line num="47" count="7" type="stmt"/>
         <line num="48" count="7" type="stmt"/>
         <line num="49" count="7" type="stmt"/>
-        <line num="50" count="7" type="stmt"/>
-        <line num="52" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="53" count="28" type="stmt"/>
-        <line num="54" count="28" type="stmt"/>
-        <line num="55" count="28" type="stmt"/>
-        <line num="57" count="28" type="stmt"/>
-        <line num="58" count="28" type="stmt"/>
-        <line num="59" count="7" type="stmt"/>
-        <line num="61" count="7" type="stmt"/>
-        <line num="62" count="7" type="stmt"/>
-        <line num="63" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="64" count="7" type="stmt"/>
-        <line num="65" count="7" type="stmt"/>
+        <line num="51" count="7" type="stmt"/>
+        <line num="52" count="7" type="stmt"/>
+        <line num="53" count="7" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+        <line num="55" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="56" count="7" type="stmt"/>
+        <line num="57" count="7" type="stmt"/>
+        <line num="58" count="7" type="stmt"/>
+        <line num="59" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="60" count="28" type="stmt"/>
+        <line num="61" count="28" type="stmt"/>
+        <line num="62" count="28" type="stmt"/>
+        <line num="64" count="28" type="stmt"/>
+        <line num="65" count="28" type="stmt"/>
         <line num="66" count="7" type="stmt"/>
         <line num="67" count="7" type="stmt"/>
         <line num="68" count="7" type="stmt"/>
