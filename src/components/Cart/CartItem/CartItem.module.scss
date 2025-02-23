@@ -5,65 +5,22 @@
   &__item {
     @include mixines.border(1px, var(--element-color));
     padding: 16px;
+    max-width: 100%;
 
     @include mixines.tablet {
       padding: 24px;
 
-      @include mixines.flex-container(center, space-between, row, 0 24px);
+      @include mixines.flex-container(center, center, column, 0 24px);
     }
   }
-}
-
-.price {
-  font-weight: 600;
 }
 
 .img {
-  height: 100%;
+  width: 100%;
+  height: auto;
 
   &__container {
-    min-width: 80px;
-    height: 80px;
-    padding: 7px;
-    margin-right: 24px;
+    min-width: 100px;
+    height: auto;
   }
-}
-
-.description {
-  margin-bottom: 16px;
-
-  @include mixines.flex-container(center);
-}
-
-.close {
-  margin-right: 16px;
-  width: 0;
-
-  > svg {
-    color: var(--main-color);
-  }
-
-  &:hover {
-    > svg {
-      color: var(--red-color);
-    }
-  }
-
-  @include mixines.tablet {
-    margin-right: 32px;
-  }
-}
-
-.controls {
-  @include mixines.flex-container(center, space-between, row, 0 24px);
-
-  &__container {
-    flex-shrink: 0;
-    @include mixines.flex-container(center);
-  }
-}
-
-.quantity {
-  width: 32px;
-  text-align: center;
 }

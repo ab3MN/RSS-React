@@ -12,6 +12,7 @@ export const ThemeSwitcher = () => {
     <span className={s.container}>
       <label className={s.switch}>
         <input
+          data-testid="themeswitcher"
           type="checkbox"
           className={s.input}
           onChange={handleSwitchTheme}

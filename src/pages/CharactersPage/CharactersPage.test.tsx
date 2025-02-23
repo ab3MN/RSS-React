@@ -7,6 +7,8 @@ import { Mock, vi } from 'vitest';
 import CharactersPage from './CharactersPage';
 
 import characterSlice, { useGetCharactersQuery } from '@/redux/slices/character.slice';
+import { charaktersData } from '@/mocks/CharackersData';
+import { cartSlice } from '@/redux/slices';
 
 vi.mock('@/redux/slices/character.slice', async () => {
   const actual = await import('@/redux/slices/character.slice');
@@ -21,6 +23,7 @@ const renderWithStore = (preloadedState = {}) => {
   const store = configureStore({
     reducer: {
       [characterSlice.reducerPath]: characterSlice.reducer,
+      cartReducer: cartSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(characterSlice.middleware),
     preloadedState,
@@ -41,7 +44,7 @@ describe('CharactersPage', () => {
   });
 
   it('renders loading state initially', () => {
-    (useGetCharactersQuery as jest.Mock).mockReturnValue({
+    (useGetCharactersQuery as Mock).mockReturnValue({
       data: null,
       isLoading: true,
       isError: false,
@@ -53,7 +56,7 @@ describe('CharactersPage', () => {
   });
 
   it('renders "No Characters Found" on error', async () => {
-    (useGetCharactersQuery as unknown as Mock).mockReturnValue({
+    (useGetCharactersQuery as Mock).mockReturnValue({
       data: null,
       isLoading: false,
       isError: true,
@@ -62,5 +65,17 @@ describe('CharactersPage', () => {
     renderWithStore();
 
     expect(await screen.findByText('No Characters Found')).toBeInTheDocument();
+  });
+
+  it('renders "No Characters Found" on error', async () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
+      data: { results: charaktersData },
+      isLoading: false,
+      isError: false,
+    });
+
+    renderWithStore();
+
+    expect(await screen.findByText('Luke Skywalker')).toBeInTheDocument();
   });
 });

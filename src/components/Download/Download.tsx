@@ -1,23 +1,21 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import cn from 'classnames';
 
 import s from './Download.module.scss';
 
-import { Cart } from '@/types/Cart.types';
-import { CharacterData } from '@/types/Characker.type';
 import { getCharactersFileData } from '@/utils';
 import { clearCart } from '@/redux/slices';
 import { Button } from '@/UI/Button/Button';
 import { DownLoadLink } from '@/UI/Button/DownLoadLink';
+import { useAppSelector } from '@/redux/hooks';
+import { cartSelector } from '@/redux/selectors';
 
-interface Props {
-  cart: Cart<CharacterData>;
-}
-
-export const Download: FC<Props> = ({ cart }) => {
+export const Download = () => {
   const [href, setHref] = useState('');
   const dispatch = useDispatch();
+
+  const cart = useAppSelector(cartSelector);
 
   const handleDonwload = (): void => {
     const fileData = getCharactersFileData(cart.items);

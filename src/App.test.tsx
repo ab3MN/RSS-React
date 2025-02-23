@@ -5,7 +5,6 @@ import { vi } from 'vitest';
 import configureStore from 'redux-mock-store';
 
 import { mockCart } from './mocks/cart';
-import { Download } from './components/Download/Download';
 
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { Root } from '@/Root';
@@ -39,28 +38,5 @@ describe('Application Root', () => {
     );
 
     expect(screen.getByText('Characters')).toBeInTheDocument();
-  });
-
-  test('should render Download', () => {
-    render(
-      <Provider store={store}>
-        <PersistGate
-          loading={null}
-          persistor={persistor}
-        >
-          <ThemeProvider>
-            <Root />
-          </ThemeProvider>
-        </PersistGate>
-      </Provider>
-    );
-
-    expect(
-      render(
-        <Provider store={store}>
-          <Download cart={mockCart} />
-        </Provider>
-      )
-    );
   });
 });

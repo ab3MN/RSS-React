@@ -8,11 +8,16 @@
   background-color: var(--main-bg-color);
   position: fixed;
   bottom: 0;
-  transition: transform 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  transform: translateY(100px);
   @include mixines.flex-container(center, space-around, row, 20px);
 
   > button,
   a {
     width: 150px;
   }
+}
+
+.visible {
+  transform: translateY(0);
 }

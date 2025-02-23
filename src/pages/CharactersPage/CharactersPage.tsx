@@ -36,18 +36,8 @@ const CharactersPage = () => {
           />
         );
 
-      case !isLoading && !!data: {
-        return <Characters data={data} />;
-      }
-
       default:
-        return (
-          <EmptyContainer
-            title="No Characters Found"
-            pathToImg="/not-found.png"
-            alt="Not Found"
-          />
-        );
+        return <Characters data={data} />;
     }
   };
 

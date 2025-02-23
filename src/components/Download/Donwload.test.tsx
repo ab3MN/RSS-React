@@ -22,14 +22,14 @@ describe('Download component', () => {
   });
 
   beforeEach(() => {
-    store = mockStore({ cart: mockCart });
+    store = mockStore({ cartReducer: { cart: mockCart } });
     store.dispatch = vi.fn();
   });
 
   it('renders the correct number of selected items', () => {
     render(
       <Provider store={store}>
-        <Download cart={mockCart} />
+        <Download />
       </Provider>
     );
 
@@ -39,7 +39,7 @@ describe('Download component', () => {
   it('dispatches clearCart action on "Unselect all" button click', () => {
     render(
       <Provider store={store}>
-        <Download cart={mockCart} />
+        <Download />
       </Provider>
     );
 
@@ -53,7 +53,7 @@ describe('Download component', () => {
   it('sets the correct download link on "Download" button click', () => {
     render(
       <Provider store={store}>
-        <Download cart={mockCart} />
+        <Download />
       </Provider>
     );
 

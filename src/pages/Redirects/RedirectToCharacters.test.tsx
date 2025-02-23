@@ -1,28 +1,34 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 
 import { RedirectToCharacters } from './RedirectToCharacters';
 
 import { PATH } from '@/constants/path';
 
-describe('RedirectToCharacters', () => {
-  it('redirects to the characters page with search params', () => {
-    const initialRoute = '/?query=test';
+vi.mock('@/hooks/useLocaLStorage', () => ({
+  default: () => ({
+    getItem: vi.fn(() => 'storedSearchValue'),
+  }),
+}));
 
+describe('RedirectToCharacters', () => {
+  it('redirects to the characters page with search params from localStorage', () => {
     render(
-      <MemoryRouter initialEntries={[initialRoute]}>
+      <MemoryRouter initialEntries={[PATH.HOME]}>
         <Routes>
           <Route
-            path="/"
+            path={PATH.HOME}
             element={<RedirectToCharacters />}
           />
           <Route
-            path={PATH.CHARACTERS}
+            path={`${PATH.CHARACTERS}`}
             element={<div>Characters Page</div>}
           />
         </Routes>
       </MemoryRouter>
     );
+
+    expect(screen.getByText('Characters Page')).toBeInTheDocument();
   });
 });

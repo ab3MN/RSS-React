@@ -5,6 +5,8 @@ import { vi } from 'vitest';
 import useLocaLStorage from './useLocaLStorage';
 import { useSearch } from './useSearch';
 
+import { PATH } from '@/constants';
+
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual<typeof import('react-router-dom')>('react-router-dom');
 
@@ -95,6 +97,6 @@ describe('useSearch', () => {
     });
 
     expect(localStorageMock.setItem).toHaveBeenCalledWith('vitest');
-    expect(navigate).toHaveBeenCalledWith('?page=1&search=vitest');
+    expect(navigate).toHaveBeenCalledWith(`${PATH.CHARACTERS}?page=1&search=vitest`);
   });
 });

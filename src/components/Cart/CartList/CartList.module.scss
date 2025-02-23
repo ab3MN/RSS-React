@@ -1,8 +1,9 @@
 @use '@/styles/abstract/mixines';
 
 .list {
-  margin-bottom: 32px;
-  @include mixines.flex-container(stretch, center, row, 20px, wrap);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
 
   &__item {
     margin-bottom: 16px;
