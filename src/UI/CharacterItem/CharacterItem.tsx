@@ -52,6 +52,7 @@ export const CharacterItem: FC<Props> = ({ character }) => {
             data-testid="checkbox"
             className={s.checkbox}
             type="checkbox"
+            onClick={(e) => e.stopPropagation()}
             onChange={() => dispatch(toogleItemToCart(character))}
             checked={!!isItemExistInCart(cart, character)}
           />

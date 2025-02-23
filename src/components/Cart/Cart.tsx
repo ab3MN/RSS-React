@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { CartList } from './CartList/CartList';
 import s from './Cart.module.scss';
+import { CartList } from './CartList/CartList';
 
 import { Cart } from '@/types/Cart.types';
 import { CharacterData } from '@/types/Characker.type';

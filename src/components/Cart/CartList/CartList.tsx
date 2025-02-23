@@ -11,11 +11,7 @@ interface Props {
 }
 
 export const CartList: FC<Props> = ({ items }) => (
-  <ul
-    className={s.list}
-    data-aos="fade-right"
-    data-aos-duration="1500"
-  >
+  <ul className={s.list}>
     {items.map((item) => (
       <li
         className={s.listItem}
