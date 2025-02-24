@@ -1,0 +1,26 @@
+@use '@/styles/abstract/mixines';
+@use '@/styles/abstract/constants';
+
+.cart {
+  &__item {
+    @include mixines.border(1px, var(--element-color));
+    padding: 16px;
+    max-width: 100%;
+
+    @include mixines.tablet {
+      padding: 24px;
+
+      @include mixines.flex-container(center, center, column, 0 24px);
+    }
+  }
+}
+
+.img {
+  width: 100%;
+  height: auto;
+
+  &__container {
+    min-width: 100px;
+    height: auto;
+  }
+}

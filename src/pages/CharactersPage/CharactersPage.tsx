@@ -1,5 +1,4 @@
 import { Outlet, useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
 import s from './CharactersPage.module.scss';
 
@@ -8,19 +7,16 @@ import { EmptyContainer } from '@/UI/EmptyContainer/EmptyContainer';
 import { SkeletoneList } from '@/UI/Sceletones/SkeletoneList/SkeletoneList';
 import { Container } from '@/UI/Container/Container';
 import { getSearchPage } from '@/utils/getSearchPage';
-import { useFetchCharacters } from '@/hooks/useFetch';
+import { getURLSearchParams } from '@/utils/URLHelpers';
+import { useGetCharactersQuery } from '@/redux/slices';
 
 const CharactersPage = () => {
-  const { data, isLoading, error, fetchData } = useFetchCharacters();
   const [searchParams] = useSearchParams();
-
   const page = String(getSearchPage(searchParams.get('page')));
   const search = searchParams.get('search') || '';
   const details = searchParams.get('details');
 
-  useEffect(() => {
-    fetchData({ search, page });
-  }, [search, fetchData, page]);
+  const { data, isLoading, isError } = useGetCharactersQuery(getURLSearchParams({ search, page }));
 
   const renderView = () => {
     switch (true) {
@@ -31,7 +27,7 @@ const CharactersPage = () => {
           </div>
         );
 
-      case (!isLoading && !!error) || (!isLoading && !data.results.length):
+      case (!isLoading && !!isError) || !data?.results.length:
         return (
           <EmptyContainer
             title="No Characters Found"

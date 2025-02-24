@@ -5,7 +5,7 @@
   width: 100%;
   padding-block: 9.5px;
   font-size: 16px;
-  transition: all constants.$transition-time;
+  transition: constants.$transition-time all;
   background-color: var(--button-bgc-color);
   color: var(--white-color);
 
@@ -15,5 +15,16 @@
   &:hover:not(:disabled) {
     background-color: var(--button-hover-bgc-color);
     box-shadow: 0 3px 13px var(--button-hover-bgc-color);
+  }
+}
+
+.selected {
+  background-color: var(--button-selected-bgc-color);
+  color: var(--button-selected-color);
+  border: 1px solid var(--button-selected-border-color);
+
+  &:hover:not(:disabled) {
+    color: var(--white-color);
+    border: 1px solid var(--button-selected-hover-border-color);
   }
 }

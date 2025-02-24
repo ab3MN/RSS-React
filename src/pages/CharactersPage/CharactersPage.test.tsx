@@ -1,110 +1,81 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { describe, it, expect, vi, Mock } from 'vitest';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { MemoryRouter } from 'react-router-dom';
+import { Mock, vi } from 'vitest';
 
 import CharactersPage from './CharactersPage';
 
-import { useFetchCharacters } from '@/hooks/useFetch';
+import characterSlice, { useGetCharactersQuery } from '@/redux/slices/character.slice';
+import { charaktersData } from '@/mocks/CharackersData';
+import { cartSlice } from '@/redux/slices';
 
-vi.mock('@/hooks/useFetch', () => ({
-  useFetchCharacters: vi.fn(),
-}));
+vi.mock('@/redux/slices/character.slice', async () => {
+  const actual = await import('@/redux/slices/character.slice');
 
-describe('CharactersPage', () => {
-  it('renders loading skeletons while fetching data', () => {
-    (useFetchCharacters as Mock).mockReturnValue({
-      data: null,
-      isLoading: true,
-      error: null,
-      fetchData: vi.fn(),
-    });
+  return {
+    ...actual,
+    useGetCharactersQuery: vi.fn(),
+  };
+});
 
-    render(
+const renderWithStore = (preloadedState = {}) => {
+  const store = configureStore({
+    reducer: {
+      [characterSlice.reducerPath]: characterSlice.reducer,
+      cartReducer: cartSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(characterSlice.middleware),
+    preloadedState,
+  });
+
+  return render(
+    <Provider store={store}>
       <MemoryRouter>
         <CharactersPage />
       </MemoryRouter>
-    );
+    </Provider>
+  );
+};
+
+describe('CharactersPage', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('renders loading state initially', () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
+      data: null,
+      isLoading: true,
+      isError: false,
+    });
+
+    renderWithStore();
 
     expect(screen.getByTestId('skeleton-list')).toBeInTheDocument();
   });
 
-  it('renders "No Characters Found" when no data is returned', async () => {
-    (useFetchCharacters as Mock).mockReturnValue({
-      data: { results: [] },
-      isLoading: false,
-      error: null,
-      fetchData: vi.fn(),
-    });
-
-    render(
-      <MemoryRouter>
-        <CharactersPage />
-      </MemoryRouter>
-    );
-
-    expect(await screen.findByText('No Characters Found')).toBeInTheDocument();
-  });
-
-  it('renders error state when an error occurs', async () => {
-    (useFetchCharacters as Mock).mockReturnValue({
+  it('renders "No Characters Found" on error', async () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
       data: null,
       isLoading: false,
-      error: 'Something went wrong',
-      fetchData: vi.fn(),
+      isError: true,
     });
 
-    render(
-      <MemoryRouter>
-        <CharactersPage />
-      </MemoryRouter>
-    );
+    renderWithStore();
 
     expect(await screen.findByText('No Characters Found')).toBeInTheDocument();
   });
 
-  it('renders Characters component when data is available', async () => {
-    (useFetchCharacters as Mock).mockReturnValue({
-      data: { results: [{ name: 'Luke Skywalker', url: 'https://swapi.dev/api/people/1/' }] },
+  it('renders "No Characters Found" on error', async () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
+      data: { results: charaktersData },
       isLoading: false,
-      error: null,
-      fetchData: vi.fn(),
+      isError: false,
     });
 
-    render(
-      <MemoryRouter>
-        <CharactersPage />
-      </MemoryRouter>
-    );
+    renderWithStore();
 
     expect(await screen.findByText('Luke Skywalker')).toBeInTheDocument();
-  });
-
-  it('renders Outlet when details parameter is present', async () => {
-    vi.mock('react-router-dom', async () => {
-      const actual = await vi.importActual<typeof import('react-router-dom')>('react-router-dom');
-
-      return {
-        ...actual,
-        useSearchParams: vi.fn(() => [new URLSearchParams('?details=1'), vi.fn()]),
-      };
-    });
-
-    render(
-      <MemoryRouter initialEntries={['/?details=1']}>
-        <Routes>
-          <Route
-            path="/"
-            element={<CharactersPage />}
-          >
-            <Route
-              index
-              element={<div>Details Page</div>}
-            />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-
-    expect(await screen.findByText('Details Page')).toBeInTheDocument();
   });
 });

@@ -4,27 +4,14 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { Character } from './Character';
 
-import { CharacterData } from '@/types/Characker.type';
+import { characterData } from '@/mocks/CharackersData';
 
 describe('Character component', () => {
-  const mockCharacter: CharacterData = {
-    name: 'Luke Skywalker',
-    planet: 'Tatooine',
-    hair_color: 'Blond',
-    eye_color: 'Blue',
-    birth_year: '19BBY',
-    url: 'https://swapi.dev/api/people/1/',
-    homeworld: 'Tatooine',
-    films: [],
-    vehicles: [],
-    starships: [],
-  };
-
   it('renders character name', () => {
     render(
       <MemoryRouter>
         <Character
-          character={mockCharacter}
+          character={characterData}
           id={1}
         />
       </MemoryRouter>
@@ -39,7 +26,7 @@ describe('Character component', () => {
     render(
       <MemoryRouter>
         <Character
-          character={mockCharacter}
+          character={characterData}
           id={1}
         />
       </MemoryRouter>
@@ -55,7 +42,7 @@ describe('Character component', () => {
     render(
       <MemoryRouter>
         <Character
-          character={mockCharacter}
+          character={characterData}
           id={1}
         />
       </MemoryRouter>

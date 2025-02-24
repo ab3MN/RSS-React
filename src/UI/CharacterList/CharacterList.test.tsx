@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import { CharacterList } from './CharacterList';
+
+import { store } from '@/redux/store';
 
 export const characters = [
   {
@@ -34,9 +37,11 @@ export const characters = [
 describe('', () => {
   test('should renders list with items', async () => {
     render(
-      <BrowserRouter>
-        <CharacterList characters={characters} />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <CharacterList characters={characters} />
+        </BrowserRouter>
+      </Provider>
     );
 
     const item = await screen.findByTestId('character-list');

@@ -5,7 +5,7 @@
   border-bottom: 1px solid var(--element-color);
   background-color: var(--main-bg-color);
   margin-bottom: 24px;
-  @include mixines.flex-container(center, space-between, row);
+  @include mixines.flex-container(center, space-between);
 }
 
 .logo {
@@ -18,6 +18,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.menu {
+  @include mixines.flex-container(center, start, row, 0 20px);
 }
 
 .search {

@@ -20,13 +20,17 @@
     "format": "npm run prettier:fix && npm run stylelint:fix && npm run lint:fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "@testing-library/user-event": "^14.6.1",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
+    "redux-mock-store": "^1.5.5",
+    "redux-persist": "^6.0.0",
     "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
@@ -39,6 +43,7 @@
     "@types/node": "^22.10.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/redux-mock-store": "^1.5.0",
     "@types/testing-library__jest-dom": "^5.14.9",
     "@typescript-eslint/eslint-plugin": "^8.19.1",
     "@typescript-eslint/parser": "^8.19.1",

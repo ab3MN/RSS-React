@@ -5,7 +5,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { Header } from './Header';
 
 import { useSearch } from '@/hooks/useSearch';
-import { PATH } from '@/constants/path';
 
 vi.mock('@/hooks/useSearch');
 
@@ -33,7 +32,7 @@ describe('Header', () => {
     );
 
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute('href', PATH.HOME);
+    expect(screen.getAllByRole('link').length).toBe(3);
   });
 
   it('should call handleClear when the logo is clicked', () => {

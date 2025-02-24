@@ -1,104 +1,113 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import { MemoryRouter, useSearchParams } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { MemoryRouter } from 'react-router-dom';
+import { Mock, vi } from 'vitest';
 
 import CharacterPage from './CharacterPage';
 
-import { useFetchCharacter } from '@/hooks/useFetch';
+import characterSlice, { useGetCharacterByIdQuery } from '@/redux/slices/character.slice';
 
-vi.mock('@/hooks/useFetch');
-
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual<typeof import('react-router-dom')>('react-router-dom');
+vi.mock('@/redux/slices/character.slice', async () => {
+  const actual = await import('@/redux/slices/character.slice');
 
   return {
     ...actual,
-    useSearchParams: vi.fn(() => [new URLSearchParams(''), vi.fn()]),
+    useGetCharacterByIdQuery: vi.fn(),
   };
 });
 
-describe('CharacterPage', () => {
-  it('does not fetch data when characterId is empty', () => {
-    const fetchDataMock = vi.fn();
+const renderWithStore = (preloadedState = {}) => {
+  const store = configureStore({
+    reducer: {
+      [characterSlice.reducerPath]: characterSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(characterSlice.middleware),
+    preloadedState,
+  });
 
-    vi.mocked(useSearchParams).mockReturnValue([new URLSearchParams(''), vi.fn()]);
-    vi.mocked(useFetchCharacter).mockReturnValue({
-      data: null,
-      isLoading: false,
-      error: null,
-      fetchData: fetchDataMock,
-    });
-
-    render(
+  return render(
+    <Provider store={store}>
       <MemoryRouter>
         <CharacterPage />
       </MemoryRouter>
-    );
+    </Provider>
+  );
+};
 
-    expect(fetchDataMock).not.toHaveBeenCalled();
+describe('CharacterPage', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
-  it('renders loader when loading', () => {
-    vi.mocked(useFetchCharacter).mockReturnValue({
+  it('renders loading state initially', () => {
+    (useGetCharacterByIdQuery as Mock).mockReturnValue({
       data: null,
       isLoading: true,
-      error: null,
-      fetchData: vi.fn(),
+      isError: false,
     });
 
-    render(
-      <MemoryRouter>
-        <CharacterPage />
-      </MemoryRouter>
-    );
+    renderWithStore();
 
-    const loaderIcon = screen.getByTestId('loader-icon');
+    const loader = screen.getByTestId('loader-icon');
 
-    expect(loaderIcon).toBeInTheDocument();
+    expect(loader).toBeInTheDocument();
   });
 
-  it('renders EmptyContainer when there is an error', () => {
-    vi.mocked(useFetchCharacter).mockReturnValue({
+  it('renders error state when there is an error', () => {
+    (useGetCharacterByIdQuery as Mock).mockReturnValue({
       data: null,
       isLoading: false,
-      error: 'Error',
-      fetchData: vi.fn(),
+      isError: true,
     });
 
-    render(
-      <MemoryRouter>
-        <CharacterPage />
-      </MemoryRouter>
-    );
+    renderWithStore();
 
-    expect(screen.getByRole('heading', { name: /no characters found/i })).toBeInTheDocument();
+    const errorMessage = screen.getByText('No Character Found');
+
+    expect(errorMessage).toBeInTheDocument();
   });
 
-  it('renders Character when data is available', () => {
-    vi.mocked(useFetchCharacter).mockReturnValue({
-      data: {
-        name: 'Luke Skywalker',
-        planet: 'Tatooine',
-        hair_color: 'Blond',
-        eye_color: 'Blue',
-        birth_year: '19BBY',
-        url: 'https://swapi.dev/api/people/1/',
-        homeworld: 'Tatooine',
-        films: [],
-        vehicles: [],
-        starships: [],
-      },
+  it('renders character data when available', () => {
+    const mockCharacter = {
+      id: 1,
+      name: 'John Doe',
+    };
+
+    (useGetCharacterByIdQuery as Mock).mockReturnValue({
+      data: mockCharacter,
       isLoading: false,
-      error: null,
-      fetchData: vi.fn(),
+      isError: false,
     });
 
-    render(
-      <MemoryRouter>
-        <CharacterPage />
-      </MemoryRouter>
-    );
+    renderWithStore();
 
-    expect(screen.getByText('Luke Skywalker')).toBeInTheDocument();
+    const characterName = screen.getByText(mockCharacter.name);
+
+    expect(characterName).toBeInTheDocument();
+  });
+
+  it('renders empty state when character is not found', () => {
+    (useGetCharacterByIdQuery as Mock).mockReturnValue({
+      data: null,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderWithStore();
+
+    const emptyMessage = screen.getByText('No Character Found');
+
+    expect(emptyMessage).toBeInTheDocument();
+  });
+
+  it('calls API with correct characterId', () => {
+    const mockCharacterId = '123';
+
+    vi.spyOn(URLSearchParams.prototype, 'get').mockReturnValue(mockCharacterId);
+
+    renderWithStore();
+
+    expect(useGetCharacterByIdQuery).toHaveBeenCalledWith(mockCharacterId);
   });
 });

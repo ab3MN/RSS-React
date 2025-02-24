@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import useLocaLStorage from './useLocaLStorage';
 
+import { PATH } from '@/constants';
+
 export const useSearch = () => {
   const [search, setSearch] = useState('');
   const [initialSearch, setInitialSearch] = useState('');
@@ -39,7 +41,7 @@ export const useSearch = () => {
       const params = searchValue ? `?page=1&search=${searchValue}` : `?page=1`;
 
       setItem(searchValue);
-      navigate(params);
+      navigate(`${PATH.CHARACTERS}${params}`);
     },
     [search, initialSearch, setItem, navigate]
   );

@@ -38,7 +38,7 @@ class ErrorBoundary extends Component<Props, State> {
             data-testId="error-title"
             className={s.title}
           >
-            {errorMessage ? errorMessage : 'Sorry.. there was an error'}
+            {errorMessage}
           </h1>
           <div className={s.buttonContainer}>
             <Button

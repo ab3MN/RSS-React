@@ -1,34 +1,27 @@
-import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { EmptyContainer } from '@/UI/EmptyContainer/EmptyContainer';
 import { Character } from '@/components/Character/Character';
 import { Loader } from '@/UI/Loader/Loader';
 import { Container } from '@/UI/Container/Container';
-import { useFetchCharacter } from '@/hooks/useFetch';
+import { useGetCharacterByIdQuery } from '@/redux/slices';
 
 const CharacterPage = () => {
   const [searchParams] = useSearchParams();
 
   const characterId = searchParams.get('details') || '';
 
-  const { data: character, isLoading, error, fetchData } = useFetchCharacter();
-
-  useEffect(() => {
-    if (characterId) {
-      fetchData(characterId);
-    }
-  }, [characterId, fetchData]);
+  const { data: character, isLoading, isError } = useGetCharacterByIdQuery(characterId);
 
   const renderView = () => {
     switch (true) {
       case isLoading:
         return <Loader />;
 
-      case !isLoading && !!error:
+      case !isLoading && !!isError:
         return (
           <EmptyContainer
-            title="No Characters Found"
+            title="No Character Found"
             pathToImg="/not-found.png"
             alt="Not Found"
           />
@@ -45,7 +38,7 @@ const CharacterPage = () => {
       default:
         return (
           <EmptyContainer
-            title="No Characters Found"
+            title="No Character Found"
             pathToImg="/not-found.png"
             alt="Not Found"
           />

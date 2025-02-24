@@ -1,53 +1,50 @@
-import { vi, describe, it, expect, Mock } from 'vitest';
+import { describe, test, expect, vi, Mock } from 'vitest';
 
-import { getCharactersData, getCharacterData } from './character.api';
+import { getPlanet, planetCache } from './character.api';
 
 import { handleRequest } from '@/utils/handleRequest';
+import { characterData } from '@/mocks/CharackersData';
+
+const setSpy = vi.spyOn(planetCache, 'set');
+const getSpy = vi.spyOn(planetCache, 'get');
 
 vi.mock('axios');
 vi.mock('@/utils/handleRequest', () => ({
   handleRequest: vi.fn(),
 }));
 
-describe('API Functions', () => {
-  it('should return character data with planet name', async () => {
-    const mockCharacter = {
-      name: 'Luke Skywalker',
-      homeworld: 'https://swapi.dev/api/planets/1/',
-    };
-    const mockPlanetName = 'Tatooine';
-    const mockCharacterResponse = {
-      data: {
-        results: [mockCharacter],
-      },
-    };
+describe('getPlanet', () => {
+  let mockPlanet: unknown;
 
-    (handleRequest as Mock)
-      .mockResolvedValueOnce(mockCharacterResponse)
-      .mockResolvedValueOnce({ data: { name: mockPlanetName } });
+  beforeEach(() => {
+    mockPlanet = { data: { name: characterData.planet } };
+    planetCache.clear();
+  });
+  test('should fetch and return planet name', async () => {
+    (handleRequest as Mock).mockResolvedValue(mockPlanet);
 
-    const charactersData = await getCharactersData();
+    const result = await getPlanet(characterData.homeworld);
 
-    expect(charactersData.results[0].name).toBe('Luke Skywalker');
-    expect(charactersData.results[0].planet).toBe(mockPlanetName);
+    expect(result).toBe(characterData.planet);
   });
 
-  it('should return character data for single character with planet name', async () => {
-    const mockCharacter = {
-      name: 'Luke Skywalker',
-      homeworld: 'https://swapi.dev/api/planets/1/',
-    };
-    const mockPlanetName = 'Tatooine';
-    const mockCharacterResponse = {
-      data: mockCharacter,
-    };
+  test('should return cached planet name if available', async () => {
+    (handleRequest as Mock).mockResolvedValue({ data: { name: characterData.planet } });
 
-    (handleRequest as Mock)
-      .mockResolvedValueOnce(mockCharacterResponse)
-      .mockResolvedValueOnce({ data: { name: mockPlanetName } });
-    const characterData = await getCharacterData('1');
+    await getPlanet(characterData.homeworld);
+    await getPlanet(characterData.homeworld);
 
-    expect(characterData.name).toBe('Luke Skywalker');
-    expect(characterData.planet).toBe(mockPlanetName);
+    expect(getSpy).toHaveBeenCalledWith(characterData.homeworld);
+    expect(setSpy).toHaveBeenCalledWith(characterData.homeworld, characterData.planet);
+
+    expect(handleRequest).toHaveBeenCalledTimes(1);
+    getSpy.mockRestore();
+    setSpy.mockRestore();
+  });
+
+  test('should throw an error if request fails', async () => {
+    (handleRequest as Mock).mockRejectedValue(new Error('Network error'));
+
+    await expect(getPlanet('https://swapi.dev/api/planets/3/')).rejects.toThrow('Network error');
   });
 });
